@@ -896,8 +896,44 @@
             pointer-events: none;
             z-index: 0;
         }
-        .pricing-decor-left { top: 40px; left: 30px; }
-        .pricing-decor-right { bottom: 40px; right: 30px; transform: rotate(180deg); }
+        .pricing-decor-left { top: 20px; left: 10px; }
+        .pricing-decor-right { bottom: 20px; right: 10px; }
+
+        /* Floral decorations */
+        .floral-accent {
+            pointer-events: none;
+            display: inline-block;
+        }
+        .floral-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 0 auto 20px;
+        }
+        .floral-divider .divider-line {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .section-header .floral-top {
+            display: block;
+            margin: 0 auto 8px;
+        }
+        .hero-floral-left, .hero-floral-right {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+        }
+        .hero-floral-left { bottom: 40px; left: 20px; }
+        .hero-floral-right { top: 60px; right: 20px; transform: scaleX(-1); }
+        .pricing-floral-tl { position: absolute; top: -10px; left: 0; pointer-events: none; z-index: 1; }
+        .pricing-floral-br { position: absolute; bottom: -10px; right: 0; pointer-events: none; z-index: 1; transform: rotate(180deg); }
+        @media (max-width: 768px) {
+            .hero-floral-left, .hero-floral-right { display: none; }
+            .pricing-floral-tl, .pricing-floral-br { opacity: 0.4; }
+        }
 
         .pricing-grid {
             display: grid;
@@ -1648,6 +1684,56 @@
             </div>
         </div>
 
+        <!-- Floral accents -->
+        <div class="hero-floral-left" aria-hidden="true">
+            <svg width="180" height="160" viewBox="0 0 180 160" fill="none">
+                <g transform="translate(50,80)">
+                    <ellipse cx="0" cy="0" rx="30" ry="26" fill="#d4859a" opacity="0.5"/>
+                    <ellipse cx="-7" cy="-5" rx="20" ry="16" fill="#e0a0b0" opacity="0.6"/>
+                    <ellipse cx="4" cy="-7" rx="14" ry="11" fill="#ebbfc8" opacity="0.7"/>
+                    <ellipse cx="0" cy="-3" rx="8" ry="6" fill="#f0d0d8" opacity="0.8"/>
+                    <ellipse cx="24" cy="8" rx="10" ry="14" fill="#d4859a" opacity="0.35" transform="rotate(30,24,8)"/>
+                </g>
+                <g transform="translate(110,45)">
+                    <ellipse cx="0" cy="-12" rx="7" ry="10" fill="#7b5ea7" opacity="0.5"/>
+                    <ellipse cx="11" cy="-4" rx="7" ry="10" fill="#8b6eb7" opacity="0.45" transform="rotate(72)"/>
+                    <ellipse cx="7" cy="10" rx="7" ry="10" fill="#7b5ea7" opacity="0.4" transform="rotate(144)"/>
+                    <ellipse cx="-7" cy="10" rx="7" ry="10" fill="#8b6eb7" opacity="0.45" transform="rotate(216)"/>
+                    <ellipse cx="-11" cy="-4" rx="7" ry="10" fill="#7b5ea7" opacity="0.5" transform="rotate(288)"/>
+                    <circle cx="0" cy="0" r="4" fill="#e6d88c" opacity="0.6"/>
+                </g>
+                <circle cx="140" cy="30" r="2.5" fill="white" opacity="0.5"/><circle cx="135" cy="38" r="2" fill="white" opacity="0.4"/>
+                <circle cx="148" cy="25" r="1.8" fill="white" opacity="0.35"/><circle cx="80" cy="55" r="2" fill="white" opacity="0.4"/>
+                <circle cx="30" cy="65" r="2" fill="white" opacity="0.35"/><circle cx="25" cy="105" r="1.5" fill="white" opacity="0.3"/>
+                <path d="M35 115 Q50 100, 45 80" stroke="#7a9e6a" stroke-width="0.8" fill="none" opacity="0.35"/>
+                <path d="M45 80 Q40 93, 50 88 Q43 87, 45 80Z" fill="#7a9e6a" opacity="0.25"/>
+                <ellipse cx="90" cy="110" rx="14" ry="12" fill="#f5e6d0" opacity="0.45"/>
+                <ellipse cx="88" cy="108" rx="9" ry="8" fill="#fdf0e0" opacity="0.55"/>
+                <ellipse cx="90" cy="107" rx="5" ry="4.5" fill="#fff8f0" opacity="0.6"/>
+            </svg>
+        </div>
+        <div class="hero-floral-right" aria-hidden="true">
+            <svg width="160" height="140" viewBox="0 0 160 140" fill="none">
+                <g transform="translate(80,60)">
+                    <ellipse cx="0" cy="0" rx="24" ry="20" fill="#d4859a" opacity="0.45"/>
+                    <ellipse cx="-5" cy="-4" rx="15" ry="12" fill="#e0a0b0" opacity="0.55"/>
+                    <ellipse cx="3" cy="-5" rx="10" ry="8" fill="#ebbfc8" opacity="0.65"/>
+                    <ellipse cx="0" cy="-2" rx="6" ry="5" fill="#f0d0d8" opacity="0.7"/>
+                </g>
+                <g transform="translate(40,85)">
+                    <ellipse cx="0" cy="-10" rx="6" ry="9" fill="#7b5ea7" opacity="0.45"/>
+                    <ellipse cx="9" cy="-3" rx="6" ry="9" fill="#8b6eb7" opacity="0.4" transform="rotate(72)"/>
+                    <ellipse cx="6" cy="8" rx="6" ry="9" fill="#7b5ea7" opacity="0.35" transform="rotate(144)"/>
+                    <ellipse cx="-6" cy="8" rx="6" ry="9" fill="#8b6eb7" opacity="0.4" transform="rotate(216)"/>
+                    <ellipse cx="-9" cy="-3" rx="6" ry="9" fill="#7b5ea7" opacity="0.45" transform="rotate(288)"/>
+                    <circle cx="0" cy="0" r="3.5" fill="#e6d88c" opacity="0.55"/>
+                </g>
+                <circle cx="120" cy="45" r="2" fill="white" opacity="0.4"/><circle cx="115" cy="52" r="1.8" fill="white" opacity="0.35"/>
+                <circle cx="25" cy="70" r="2" fill="white" opacity="0.4"/><circle cx="55" cy="40" r="1.5" fill="white" opacity="0.35"/>
+                <path d="M60 40 Q70 55, 65 70" stroke="#7a9e6a" stroke-width="0.7" fill="none" opacity="0.3"/>
+            </svg>
+        </div>
+
         <div class="scroll-indicator" aria-hidden="true">
             <span>Scroll</span>
             <div class="scroll-line"></div>
@@ -1698,7 +1784,7 @@
             <div class="section-header reveal">
                 <span class="section-label">What We Offer</span>
                 <h2 class="section-title">Our Services</h2>
-                <div class="section-divider"></div>
+                <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
                 <p class="section-desc">From signature stacks to statement installations, each creation is handcrafted with care and precision.</p>
             </div>
             <div class="services-grid">
@@ -1762,7 +1848,7 @@
             <div class="section-header reveal">
                 <span class="section-label">Our Portfolio</span>
                 <h2 class="section-title">Gallery</h2>
-                <div class="section-divider"></div>
+                <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
                 <p class="section-desc">A glimpse of the magic we create for Edmonton's most memorable celebrations.</p>
             </div>
             <div class="gallery-filter reveal">
@@ -1809,17 +1895,107 @@
          PRICING SECTION
          ============================================ -->
     <section class="pricing" id="pricing">
-        <div class="pricing-decor pricing-decor-left" aria-hidden="true">
-            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" opacity="0.15"><circle cx="60" cy="60" r="55" stroke="#c9a84c" stroke-width="1.5"/><circle cx="60" cy="60" r="45" stroke="#c9a84c" stroke-width="0.8"/><path d="M60 5 C65 25, 75 30, 60 60 C45 30, 55 25, 60 5Z" fill="#d4859a" opacity="0.3"/></svg>
+        <!-- Floral corner decorations -->
+        <div class="pricing-floral-tl" aria-hidden="true">
+            <svg width="220" height="200" viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.55">
+                <!-- Gold arc -->
+                <path d="M10 190 Q10 10, 200 10" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.4"/>
+                <path d="M20 190 Q20 25, 195 20" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.25"/>
+                <!-- Large pink rose -->
+                <g transform="translate(35,95)">
+                    <ellipse cx="0" cy="0" rx="28" ry="24" fill="#d4859a" opacity="0.7"/>
+                    <ellipse cx="-8" cy="-5" rx="18" ry="15" fill="#e0a0b0" opacity="0.8"/>
+                    <ellipse cx="5" cy="-8" rx="14" ry="11" fill="#ebbfc8" opacity="0.9"/>
+                    <ellipse cx="0" cy="-4" rx="8" ry="7" fill="#f0d0d8"/>
+                    <ellipse cx="22" cy="8" rx="10" ry="14" fill="#d4859a" opacity="0.5" transform="rotate(30,22,8)"/>
+                    <ellipse cx="-20" cy="10" rx="9" ry="13" fill="#d4859a" opacity="0.45" transform="rotate(-20,-20,10)"/>
+                </g>
+                <!-- Purple flower -->
+                <g transform="translate(90,55)">
+                    <ellipse cx="0" cy="-14" rx="8" ry="12" fill="#7b5ea7" opacity="0.7" transform="rotate(0)"/>
+                    <ellipse cx="13" cy="-4" rx="8" ry="12" fill="#8b6eb7" opacity="0.65" transform="rotate(72)"/>
+                    <ellipse cx="8" cy="11" rx="8" ry="12" fill="#7b5ea7" opacity="0.6" transform="rotate(144)"/>
+                    <ellipse cx="-8" cy="11" rx="8" ry="12" fill="#8b6eb7" opacity="0.65" transform="rotate(216)"/>
+                    <ellipse cx="-13" cy="-4" rx="8" ry="12" fill="#7b5ea7" opacity="0.7" transform="rotate(288)"/>
+                    <circle cx="0" cy="0" r="5" fill="#e6d88c" opacity="0.8"/>
+                </g>
+                <!-- Small cream rose -->
+                <g transform="translate(70,130)">
+                    <ellipse cx="0" cy="0" rx="16" ry="14" fill="#f5e6d0" opacity="0.8"/>
+                    <ellipse cx="-3" cy="-3" rx="10" ry="9" fill="#fdf0e0" opacity="0.9"/>
+                    <ellipse cx="1" cy="-2" rx="6" ry="5" fill="#fff8f0"/>
+                    <ellipse cx="12" cy="4" rx="6" ry="9" fill="#f0dcc5" opacity="0.5" transform="rotate(25,12,4)"/>
+                </g>
+                <!-- Baby's breath dots -->
+                <circle cx="120" cy="35" r="2.5" fill="white" opacity="0.7"/><circle cx="115" cy="42" r="2" fill="white" opacity="0.6"/>
+                <circle cx="128" cy="30" r="2" fill="white" opacity="0.5"/><circle cx="108" cy="50" r="2.5" fill="white" opacity="0.6"/>
+                <circle cx="135" cy="45" r="1.8" fill="white" opacity="0.5"/><circle cx="100" cy="60" r="2" fill="white" opacity="0.55"/>
+                <circle cx="55" cy="70" r="2" fill="white" opacity="0.5"/><circle cx="48" cy="80" r="1.8" fill="white" opacity="0.45"/>
+                <!-- Small purple buds -->
+                <ellipse cx="130" cy="55" rx="4" ry="6" fill="#9b7ec8" opacity="0.5" transform="rotate(-15,130,55)"/>
+                <ellipse cx="50" cy="60" rx="3.5" ry="5.5" fill="#8b6eb7" opacity="0.45" transform="rotate(20,50,60)"/>
+                <!-- Leaves -->
+                <path d="M20 140 Q35 125, 30 100" stroke="#6b8a5e" stroke-width="1" fill="none" opacity="0.4"/>
+                <path d="M30 100 Q25 115, 35 110 Q28 108, 30 100Z" fill="#7a9e6a" opacity="0.35"/>
+                <path d="M95 80 Q85 95, 75 115" stroke="#6b8a5e" stroke-width="0.8" fill="none" opacity="0.35"/>
+                <path d="M85 95 Q80 90, 90 88 Q84 92, 85 95Z" fill="#7a9e6a" opacity="0.3"/>
+                <!-- Gold sparkles -->
+                <circle cx="160" cy="18" r="1.5" fill="#c9a84c" opacity="0.6"/><circle cx="175" cy="30" r="1" fill="#c9a84c" opacity="0.4"/>
+                <circle cx="145" cy="12" r="1" fill="#c9a84c" opacity="0.5"/><circle cx="15" cy="170" r="1.2" fill="#c9a84c" opacity="0.4"/>
+            </svg>
         </div>
-        <div class="pricing-decor pricing-decor-right" aria-hidden="true">
-            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" opacity="0.15"><circle cx="60" cy="60" r="55" stroke="#c9a84c" stroke-width="1.5"/><circle cx="60" cy="60" r="45" stroke="#c9a84c" stroke-width="0.8"/><path d="M60 5 C65 25, 75 30, 60 60 C45 30, 55 25, 60 5Z" fill="#d4859a" opacity="0.3"/></svg>
+        <div class="pricing-floral-br" aria-hidden="true">
+            <svg width="220" height="200" viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.55">
+                <path d="M10 190 Q10 10, 200 10" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.4"/>
+                <path d="M20 190 Q20 25, 195 20" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.25"/>
+                <g transform="translate(35,95)">
+                    <ellipse cx="0" cy="0" rx="28" ry="24" fill="#d4859a" opacity="0.7"/>
+                    <ellipse cx="-8" cy="-5" rx="18" ry="15" fill="#e0a0b0" opacity="0.8"/>
+                    <ellipse cx="5" cy="-8" rx="14" ry="11" fill="#ebbfc8" opacity="0.9"/>
+                    <ellipse cx="0" cy="-4" rx="8" ry="7" fill="#f0d0d8"/>
+                    <ellipse cx="22" cy="8" rx="10" ry="14" fill="#d4859a" opacity="0.5" transform="rotate(30,22,8)"/>
+                </g>
+                <g transform="translate(90,55)">
+                    <ellipse cx="0" cy="-14" rx="8" ry="12" fill="#7b5ea7" opacity="0.7"/>
+                    <ellipse cx="13" cy="-4" rx="8" ry="12" fill="#8b6eb7" opacity="0.65" transform="rotate(72)"/>
+                    <ellipse cx="8" cy="11" rx="8" ry="12" fill="#7b5ea7" opacity="0.6" transform="rotate(144)"/>
+                    <ellipse cx="-8" cy="11" rx="8" ry="12" fill="#8b6eb7" opacity="0.65" transform="rotate(216)"/>
+                    <ellipse cx="-13" cy="-4" rx="8" ry="12" fill="#7b5ea7" opacity="0.7" transform="rotate(288)"/>
+                    <circle cx="0" cy="0" r="5" fill="#e6d88c" opacity="0.8"/>
+                </g>
+                <g transform="translate(70,130)">
+                    <ellipse cx="0" cy="0" rx="16" ry="14" fill="#f5e6d0" opacity="0.8"/>
+                    <ellipse cx="-3" cy="-3" rx="10" ry="9" fill="#fdf0e0" opacity="0.9"/>
+                    <ellipse cx="1" cy="-2" rx="6" ry="5" fill="#fff8f0"/>
+                </g>
+                <circle cx="120" cy="35" r="2.5" fill="white" opacity="0.7"/><circle cx="115" cy="42" r="2" fill="white" opacity="0.6"/>
+                <circle cx="128" cy="30" r="2" fill="white" opacity="0.5"/><circle cx="108" cy="50" r="2.5" fill="white" opacity="0.6"/>
+                <ellipse cx="130" cy="55" rx="4" ry="6" fill="#9b7ec8" opacity="0.5" transform="rotate(-15,130,55)"/>
+                <path d="M20 140 Q35 125, 30 100" stroke="#6b8a5e" stroke-width="1" fill="none" opacity="0.4"/>
+                <path d="M30 100 Q25 115, 35 110 Q28 108, 30 100Z" fill="#7a9e6a" opacity="0.35"/>
+                <circle cx="160" cy="18" r="1.5" fill="#c9a84c" opacity="0.6"/><circle cx="175" cy="30" r="1" fill="#c9a84c" opacity="0.4"/>
+            </svg>
         </div>
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-label">Luxury Balloon Styling</span>
                 <h2 class="section-title">Elevate Your Celebrations</h2>
-                <div class="section-divider"></div>
+                <!-- Floral divider -->
+                <div class="floral-divider">
+                    <span class="divider-line"></span>
+                    <svg width="40" height="30" viewBox="0 0 40 30" fill="none" class="floral-accent" aria-hidden="true">
+                        <ellipse cx="20" cy="12" rx="9" ry="8" fill="#d4859a" opacity="0.6"/>
+                        <ellipse cx="17" cy="10" rx="6" ry="5" fill="#e8b0be" opacity="0.8"/>
+                        <ellipse cx="20" cy="9" rx="3.5" ry="3" fill="#f0d0d8"/>
+                        <ellipse cx="10" cy="18" rx="4" ry="5.5" fill="#8b6eb7" opacity="0.5" transform="rotate(-20,10,18)"/>
+                        <ellipse cx="30" cy="18" rx="4" ry="5.5" fill="#8b6eb7" opacity="0.5" transform="rotate(20,30,18)"/>
+                        <circle cx="7" cy="8" r="1.5" fill="white" opacity="0.7"/><circle cx="33" cy="8" r="1.5" fill="white" opacity="0.7"/>
+                        <circle cx="5" cy="12" r="1.2" fill="white" opacity="0.5"/><circle cx="35" cy="12" r="1.2" fill="white" opacity="0.5"/>
+                        <path d="M14 22 Q12 18, 8 20" stroke="#7a9e6a" stroke-width="0.6" fill="none" opacity="0.5"/>
+                        <path d="M26 22 Q28 18, 32 20" stroke="#7a9e6a" stroke-width="0.6" fill="none" opacity="0.5"/>
+                    </svg>
+                    <span class="divider-line"></span>
+                </div>
                 <p class="section-desc">Beautifully crafted balloon décor packages for every occasion. Custom quotes available for larger installations.</p>
             </div>
             <div class="pricing-grid">
@@ -1885,7 +2061,7 @@
             <div class="section-header reveal">
                 <span class="section-label">Client Love</span>
                 <h2 class="section-title">What Our Clients Say</h2>
-                <div class="section-divider"></div>
+                <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
                 <p class="section-desc">Hear from some of the amazing people who trusted us with their celebrations.</p>
             </div>
             <div class="testimonial-track">
@@ -1934,7 +2110,7 @@
             <div class="section-header reveal">
                 <span class="section-label">Tips & Care</span>
                 <h2 class="section-title">Balloon Care Guide</h2>
-                <div class="section-divider"></div>
+                <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
                 <p class="section-desc">Get the most out of your balloon décor with these helpful care tips.</p>
             </div>
             <div class="care-grid">
@@ -1978,7 +2154,7 @@
             <div class="section-header reveal">
                 <span class="section-label">Celebrations</span>
                 <h2 class="section-title">Events We Love</h2>
-                <div class="section-divider"></div>
+                <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
                 <p class="section-desc">From intimate gatherings to grand celebrations, we design balloon décor for every occasion.</p>
             </div>
             <div class="events-grid">
@@ -2022,7 +2198,7 @@
             <div class="section-header reveal">
                 <span class="section-label">Simple Process</span>
                 <h2 class="section-title">How It Works</h2>
-                <div class="section-divider"></div>
+                <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
                 <p class="section-desc">From first inquiry to flawless setup — we make the process effortless.</p>
             </div>
             <div class="booking-steps">
