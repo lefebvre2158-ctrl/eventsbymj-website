@@ -631,34 +631,24 @@
         }
 
         .about-image-wrap img {
-            border-radius: 16px;
+            border-radius: 20px;
             box-shadow: var(--shadow-card);
             width: 100%;
             height: 500px;
             object-fit: cover;
+            object-position: top center;
             background: var(--purple-pale);
+            border: 4px solid var(--gold-light);
         }
 
         .about-image-accent {
             position: absolute;
-            bottom: -20px; right: -20px;
-            width: 200px; height: 200px;
+            bottom: -16px; right: -16px;
+            width: 180px; height: 180px;
             border: 3px solid var(--gold-light);
-            border-radius: 16px;
+            border-radius: 20px;
             z-index: -1;
-        }
-
-        .about-image-badge {
-            position: absolute;
-            top: -16px; left: -16px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-shimmer));
-            color: var(--white);
-            padding: 16px 24px;
-            border-radius: 12px;
-            font-family: var(--font-display);
-            font-size: 0.9rem;
-            font-weight: 700;
-            box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3);
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.08), rgba(212, 133, 154, 0.08));
         }
 
         .about-text h2 {
@@ -970,7 +960,7 @@
             transition: var(--transition);
         }
 
-        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        .gallery-item.hidden { display: none; }
 
         .gallery-item img {
             width: 100%; height: 100%;
@@ -1387,7 +1377,6 @@
             .booking-steps { grid-template-columns: repeat(2, 1fr); }
             .booking-steps::before { display: none; }
             .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-            .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
         }
 
         @media (max-width: 768px) {
@@ -1680,16 +1669,17 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-image-wrap">
-                    <img src="https://images.unsplash.com/photo-1519167758481-83f19106048c?w=800&q=80" alt="Events by MJ founder MJ styling an elegant balloon display at an Edmonton wedding venue">
+                    <img src="images/maja-headshot.jpg" alt="Marijana (Maja) Bandjak, founder of Events by MJ, Edmonton event planner and balloon stylist">
                     <div class="about-image-accent"></div>
-                    <div class="about-image-badge">5+ Years</div>
                 </div>
                 <div class="about-text reveal">
                     <h2>About Events by MJ</h2>
-                    <span class="script-accent">Crafting Magic, One Event at a Time</span>
-                    <p>Welcome to Events by MJ, where we believe every celebration deserves to be extraordinary. Based in Edmonton, we specialize in custom balloon décor and event styling that brings your vision to life with creativity, elegance, and attention to every detail.</p>
-                    <p>Our passion is transforming ordinary spaces into stunning, Instagram-worthy environments. Whether you're planning an intimate gathering or a grand celebration, we're here to make your event unforgettable with our premium balloon designs, artistic styling, and personalized service.</p>
-                    <p>With over five years of experience and countless happy clients, we've perfected the art of creating moments that matter. Let's create something beautiful together.</p>
+                    <span class="script-accent">Every Detail Made Beautiful</span>
+                    <p>Hi, I'm Marijana (Maja) Bandjak</p>
+                    <p>I'm an Edmonton-based event planner and balloon stylist with a passion for transforming ordinary spaces into extraordinary celebrations. Every event deserves that special touch that makes it truly memorable.</p>
+                    <p>From elegant balloon stacks and whimsical arches to full-scale event styling, I bring creativity, precision, and heart to every project. Whether it's a birthday, baby shower, corporate event, or holiday celebration — I'm here to make your vision a reality.</p>
+                    <p>Let's create something beautiful together.</p>
+                    <p class="about-signature" style="font-family: var(--font-script); font-size: 2rem; color: var(--gold); margin-top: 8px;">Maja</p>
                     <div class="about-rating">
                         <div class="rating-badge">
                             <span class="stars">★★★★★</span>
@@ -1879,32 +1869,129 @@
                 <button data-filter="babyshower">Baby Showers</button>
                 <button data-filter="birthday">Birthdays</button>
                 <button data-filter="corporate">Corporate</button>
+                <button data-filter="holiday">Holiday</button>
+                <button data-filter="themed">Themed</button>
             </div>
 
             <div class="gallery-grid">
+                <!-- Weddings -->
                 <div class="gallery-item reveal" data-category="wedding">
-                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80" alt="Elegant white and gold balloon installation at an Edmonton wedding ceremony">
-                    <div class="gallery-overlay"><span>Wedding Celebration</span></div>
+                    <img src="images/wedding-bloom-wall.jpeg" alt="Stunning bloom wall and balloon installation at Edmonton wedding" loading="lazy">
+                    <div class="gallery-overlay"><span>Wedding Bloom Wall</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="wedding">
+                    <img src="images/wedding-elegant-display.jpeg" alt="Elegant wedding balloon display with gold and white accents" loading="lazy">
+                    <div class="gallery-overlay"><span>Elegant Wedding Display</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="wedding">
+                    <img src="images/wedding-romantic-setup.jpeg" alt="Romantic wedding setup with blush and rose balloon styling" loading="lazy">
+                    <div class="gallery-overlay"><span>Romantic Wedding Setup</span></div>
+                </div>
+
+                <!-- Baby Showers -->
+                <div class="gallery-item reveal" data-category="babyshower">
+                    <img src="images/baby-shower-oh-boy.jpeg" alt="Oh Boy themed baby shower balloon décor in blue and gold" loading="lazy">
+                    <div class="gallery-overlay"><span>Oh Boy Baby Shower</span></div>
                 </div>
                 <div class="gallery-item reveal" data-category="babyshower">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80" alt="Pastel pink and white balloon garland for baby shower décor">
-                    <div class="gallery-overlay"><span>Baby Shower</span></div>
+                    <img src="images/baby-shower-teddy.jpeg" alt="Teddy bear themed baby shower with pastel balloon garland" loading="lazy">
+                    <div class="gallery-overlay"><span>Teddy Bear Theme</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="babyshower">
+                    <img src="images/baby-shower-pink-setup.jpeg" alt="Pink and white baby shower balloon setup" loading="lazy">
+                    <div class="gallery-overlay"><span>Pink Baby Shower</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="babyshower">
+                    <img src="images/baby-shower-elegant.jpeg" alt="Elegant baby shower balloon décor with gold accents" loading="lazy">
+                    <div class="gallery-overlay"><span>Elegant Baby Shower</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="babyshower">
+                    <img src="images/baby-shower-blue-arch.jpeg" alt="Blue balloon arch for baby shower celebration" loading="lazy">
+                    <div class="gallery-overlay"><span>Blue Balloon Arch</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="babyshower">
+                    <img src="images/baby-shower-gold.jpeg" alt="Gold themed baby shower balloon display" loading="lazy">
+                    <div class="gallery-overlay"><span>Gold Baby Shower</span></div>
+                </div>
+
+                <!-- Birthdays -->
+                <div class="gallery-item reveal" data-category="birthday">
+                    <img src="images/birthday-balloon-stack.jpeg" alt="Custom birthday balloon stack in vibrant colours" loading="lazy">
+                    <div class="gallery-overlay"><span>Birthday Balloon Stack</span></div>
                 </div>
                 <div class="gallery-item reveal" data-category="birthday">
-                    <img src="https://images.unsplash.com/photo-1520763185298-1b434c919eba?w=400&q=80" alt="Colorful rainbow balloon arch decoration for birthday party">
-                    <div class="gallery-overlay"><span>Birthday Party</span></div>
+                    <img src="images/birthday-number-balloon.jpeg" alt="Number balloon display for birthday celebration" loading="lazy">
+                    <div class="gallery-overlay"><span>Number Balloon Display</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="birthday">
+                    <img src="images/birthday-pink-two.jpeg" alt="Pink balloon décor for second birthday party" loading="lazy">
+                    <div class="gallery-overlay"><span>Second Birthday Party</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="birthday">
+                    <img src="images/birthday-colorful-arch.jpeg" alt="Colourful birthday balloon arch" loading="lazy">
+                    <div class="gallery-overlay"><span>Colourful Birthday Arch</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="birthday">
+                    <img src="images/birthday-navy-gold-arch.jpeg" alt="Navy and gold balloon arch for birthday event" loading="lazy">
+                    <div class="gallery-overlay"><span>Navy & Gold Birthday</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="birthday">
+                    <img src="images/birthday-elegant-display.jpeg" alt="Elegant birthday balloon display setup" loading="lazy">
+                    <div class="gallery-overlay"><span>Elegant Birthday Display</span></div>
+                </div>
+
+                <!-- Corporate -->
+                <div class="gallery-item reveal" data-category="corporate">
+                    <img src="images/corporate-welcome-display.jpeg" alt="Corporate welcome display with professional balloon styling" loading="lazy">
+                    <div class="gallery-overlay"><span>Corporate Welcome</span></div>
                 </div>
                 <div class="gallery-item reveal" data-category="corporate">
-                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=400&q=80" alt="Professional corporate event balloon styling with brand colours">
-                    <div class="gallery-overlay"><span>Corporate Event</span></div>
+                    <img src="images/corporate-event-decor.jpeg" alt="Corporate event balloon décor with branded colours" loading="lazy">
+                    <div class="gallery-overlay"><span>Corporate Event Décor</span></div>
                 </div>
-                <div class="gallery-item reveal" data-category="wedding">
-                    <img src="https://images.unsplash.com/photo-1458181285573-ce2b5c2ede81?w=400&q=80" alt="Romantic wedding backdrop with blush and gold balloons">
-                    <div class="gallery-overlay"><span>Wedding Reception</span></div>
+                <div class="gallery-item reveal" data-category="corporate">
+                    <img src="images/corporate-community-event.jpeg" alt="Community event balloon installation by Events by MJ" loading="lazy">
+                    <div class="gallery-overlay"><span>Community Event</span></div>
                 </div>
-                <div class="gallery-item reveal" data-category="babyshower">
-                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&q=80" alt="Delicate botanical baby shower balloon design with pastel tones">
-                    <div class="gallery-overlay"><span>Baby Shower Styling</span></div>
+
+                <!-- Holiday -->
+                <div class="gallery-item reveal" data-category="holiday">
+                    <img src="images/holiday-red-gold-arch.jpeg" alt="Red and gold holiday balloon arch for Christmas celebration" loading="lazy">
+                    <div class="gallery-overlay"><span>Holiday Balloon Arch</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="holiday">
+                    <img src="images/holiday-christmas-garland.jpeg" alt="Christmas garland balloon decoration" loading="lazy">
+                    <div class="gallery-overlay"><span>Christmas Garland</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="holiday">
+                    <img src="images/holiday-festive-display.jpeg" alt="Festive holiday balloon display in red and green" loading="lazy">
+                    <div class="gallery-overlay"><span>Festive Display</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="holiday">
+                    <img src="images/holiday-winter-wonderland.jpeg" alt="Winter wonderland themed balloon installation" loading="lazy">
+                    <div class="gallery-overlay"><span>Winter Wonderland</span></div>
+                </div>
+
+                <!-- Themed -->
+                <div class="gallery-item reveal" data-category="themed">
+                    <img src="images/themed-purple-party.jpeg" alt="Purple themed party balloon design" loading="lazy">
+                    <div class="gallery-overlay"><span>Purple Party Theme</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="themed">
+                    <img src="images/themed-character-balloons.jpeg" alt="Character themed balloon design for kids party" loading="lazy">
+                    <div class="gallery-overlay"><span>Character Balloons</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="themed">
+                    <img src="images/themed-colorful-display.jpeg" alt="Colourful themed balloon display" loading="lazy">
+                    <div class="gallery-overlay"><span>Colourful Theme</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="themed">
+                    <img src="images/valentines-heart-balloon.jpeg" alt="Valentine's Day heart balloon arrangement" loading="lazy">
+                    <div class="gallery-overlay"><span>Valentine's Day</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="themed">
+                    <img src="images/valentines-romantic-display.jpeg" alt="Romantic Valentine's Day balloon display" loading="lazy">
+                    <div class="gallery-overlay"><span>Romantic Valentine's</span></div>
                 </div>
             </div>
         </div>
@@ -2147,7 +2234,7 @@
             "ratingValue": "5",
             "ratingCount": "50"
         },
-        "image": "https://images.unsplash.com/photo-1519167758481-83f19106048c?w=800&q=80"
+        "image": "images/wedding-bloom-wall.jpeg"
     }
     </script>
 </body>
