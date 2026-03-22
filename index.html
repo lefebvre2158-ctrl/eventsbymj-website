@@ -990,63 +990,174 @@
             font-weight: 600;
         }
 
-        /* ============================================
-           TESTIMONIALS SECTION
-           ============================================ */
-        .testimonials {
-            padding: 120px 0;
-            background: linear-gradient(180deg, var(--blush) 0%, var(--rose-pale) 100%);
+        /* =======================================
+            SOCIAL PROOF STRIP
+            ======================================= */
+        .social-proof-strip {
+            background: var(--cream);
+            padding: 3rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
         }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .testimonial-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 40px 32px;
+        .social-proof-strip .proof-item {
+            flex: 1;
+            max-width: 320px;
             text-align: center;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition);
+            padding: 0 1.5rem;
+            border-right: 1px solid var(--gold-light);
+            font-family: 'Lato', sans-serif;
+            color: #555;
+            line-height: 1.6;
+        }
+        .social-proof-strip .proof-item:last-child { border-right: none; }
+        .social-proof-strip .proof-quote {
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+        .social-proof-strip .proof-attribution {
+            font-weight: 600;
+            color: var(--purple-deep);
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* =======================================
+            TESTIMONIALS SECTION
+            ======================================= */
+        .testimonials {
+            background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+            padding: 5rem 2rem;
             position: relative;
         }
-
-        .testimonial-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
+        .testimonials .section-header { text-align: center; margin-bottom: 3rem; }
+        .testimonial-featured {
+            background: var(--white);
+            border-left: 4px solid var(--gold);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        .testimonial-stars {
-            font-size: 1.1rem;
-            color: var(--gold);
-            margin-bottom: 16px;
-            letter-spacing: 2px;
-        }
-
-        .testimonial-card p {
-            font-size: 0.95rem;
-            color: var(--text-medium);
-            font-weight: 300;
+        .testimonial-featured .quote-text {
+            font-size: 1.15rem;
             line-height: 1.8;
-            margin-bottom: 20px;
-            min-height: 80px;
+            color: #2c2c2c;
+            margin-bottom: 1.5rem;
+            font-style: italic;
         }
-
-        .testimonial-author {
-            font-family: var(--font-display);
-            font-size: 1rem;
-            font-weight: 700;
+        .testimonial-featured .author-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .testimonial-featured .author-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
             color: var(--purple-deep);
+            font-weight: 600;
+            margin: 0;
+        }
+        .event-badge {
+            display: inline-block;
+            background: var(--gold-light);
+            color: var(--purple-deep);
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto 3rem;
+        }
+        .testimonial-card {
+            background: var(--white);
+            border-left: 3px solid var(--gold);
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .testimonial-card:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+        }
+        .testimonial-card .event-badge { margin-bottom: 1rem; align-self: flex-start; }
+        .testimonial-card .quote-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #3c3c3c;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .testimonial-card .truncated { display: inline; }
+        .testimonial-card .full-text { display: none; }
+        .testimonial-card.expanded .truncated { display: none; }
+        .testimonial-card.expanded .full-text { display: inline; }
+        .testimonial-card .read-more {
+            color: var(--purple-mid);
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: color 0.2s ease;
+        }
+        .testimonial-card .read-more:hover { color: var(--gold); }
+        .testimonial-card.expanded .read-more { margin-top: 0.5rem; }
+        .testimonial-card .author-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            color: var(--purple-deep);
+            font-weight: 600;
+            margin: 0;
+        }
+        .testimonial-trust-line {
+            text-align: center;
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.3rem;
+            color: var(--purple-mid);
+            margin-top: 2rem;
+        }
+        .micro-proof {
+            text-align: center;
+            font-style: italic;
+            color: #777;
+            font-size: 0.95rem;
+            padding: 1.5rem 2rem;
         }
 
-        .testimonial-occasion {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        @media (max-width: 768px) {
+            .social-proof-strip {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2rem 1.5rem;
+            }
+            .social-proof-strip .proof-item {
+                border-right: none;
+                border-bottom: 1px solid var(--gold-light);
+                padding: 1rem 0;
+                max-width: 100%;
+            }
+            .social-proof-strip .proof-item:last-child { border-bottom: none; }
+            .testimonials { padding: 3rem 1.5rem; }
+            .testimonial-featured { padding: 1.75rem; }
+            .testimonial-featured .quote-text { font-size: 1rem; }
+            .testimonial-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .testimonial-card { padding: 1.5rem; }
         }
 
         /* ============================================
@@ -2140,38 +2251,90 @@
         </div>
     </section>
 
+    <!-- SOCIAL PROOF STRIP -->
+    <div class="social-proof-strip">
+        <div class="proof-item">
+            <p class="proof-quote">"I'm always blown away by Marijana's balloon creations. Her creativity and attention to detail are incredible."</p>
+            <p class="proof-attribution">Kelly Wong</p>
+        </div>
+        <div class="proof-item">
+            <p class="proof-quote">"This woman spends an insane amount of time and energy to get each project right. Her projects are forever evolving."</p>
+            <p class="proof-attribution">Jason Lefebvre</p>
+        </div>
+        <div class="proof-item">
+            <p class="proof-quote">"Very professional to work with and will definitely be using Events by MJ again in the future."</p>
+            <p class="proof-attribution">BGS Career Ventures</p>
+        </div>
+    </div>
+
     <!-- TESTIMONIALS SECTION -->
     <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Reviews</span>
-                <h2 class="section-title">What Our Clients Say</h2>
-                <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
-            </div>
+        <div class="section-header">
+            <span class="section-label">Reviews</span>
+            <h2>Kind Words from Our Clients</h2>
+        </div>
 
-            <div class="testimonial-grid">
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-stars">âââââ</div>
-                    <p>"MJ absolutely transformed our wedding venue. The balloon installation was stunning, and her attention to detail was incredible. Our guests couldn't stop talking about the d&eacute;cor. Highly recommend!"</p>
-                    <div class="testimonial-author">Sarah & David</div>
-                    <div class="testimonial-occasion">Wedding</div>
-                </div>
-
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-stars">âââââ</div>
-                    <p>"From concept to execution, Events by MJ delivered beyond expectations. The baby shower was picture-perfect, and every element was thoughtfully designed. Thank you for making our special day so memorable!"</p>
-                    <div class="testimonial-author">Michelle L.</div>
-                    <div class="testimonial-occasion">Baby Shower</div>
-                </div>
-
-                <div class="testimonial-card reveal">
-                    <div class="testimonial-stars">âââââ</div>
-                    <p>"Professional, creative, and so easy to work with. MJ listened to our vision and brought it to life beautifully. Our corporate event looked amazing, and our team was impressed. Will definitely book again!"</p>
-                    <div class="testimonial-author">Jennifer K.</div>
-                    <div class="testimonial-occasion">Corporate Event</div>
-                </div>
+        <div class="testimonial-featured">
+            <p class="quote-text">"She is super creative and puts her heart into any balloon design. Marijana did a beautiful setup for my baby shower and it truly was amazing. My family was not able to attend but when I showed them the pictures, the first thing they said was WOW the balloons look amazing."</p>
+            <div class="author-info">
+                <h3 class="author-name">Sandeep Parmar</h3>
+                <span class="event-badge">Baby Shower</span>
             </div>
         </div>
+
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <span class="event-badge">Event Styling</span>
+                <p class="quote-text"><span class="truncated">"From start to finish, she went above and beyond. The attention to detail was incredible, and the personal touches truly made everything feel so special. Her customer service is top notch&hellip;"</span><span class="full-text">"From start to finish, she went above and beyond. The attention to detail was incredible, and the personal touches truly made everything feel so special. Her customer service is top notch &mdash; so friendly, professional, and genuinely cares about making your vision come to life. She even came back to repurpose my balloon arch for another event, which I thought was so thoughtful!"</span></p>
+                <span class="read-more" onclick="this.closest('.testimonial-card').classList.toggle('expanded');this.textContent=this.closest('.testimonial-card').classList.contains('expanded')?'Read less':'Read more'">Read more</span>
+                <h4 class="author-name">Lizet Brkic</h4>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="event-badge">Birthday Celebrations</span>
+                <p class="quote-text"><span class="truncated">"We have had several of her balloon stacks to celebrate our kids' birthdays. Each time, Maja takes the time to determine your favourite colours, characters, or activities&hellip;"</span><span class="full-text">"We have had several of her balloon stacks to celebrate our kids' birthdays. Each time, Maja takes the time to determine your favourite colours, characters, or activities so that her creation is customized to honour the person it's made for. The balloon stacks are much bigger than expected, look amazing, and last for well over a month!"</span></p>
+                <span class="read-more" onclick="this.closest('.testimonial-card').classList.toggle('expanded');this.textContent=this.closest('.testimonial-card').classList.contains('expanded')?'Read less':'Read more'">Read more</span>
+                <h4 class="author-name">Melanie Vee</h4>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="event-badge">Gender Reveal &amp; Baby Shower</span>
+                <p class="quote-text">"The balloon setup and decorations were absolutely beautiful and truly made the whole event come to life. You could really see her passion in her work and how much of herself she puts into every detail."</p>
+                <h4 class="author-name">Leonylyn Roman Ulang</h4>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="event-badge">Birthday &amp; Special Events</span>
+                <p class="quote-text">"Events by MJ have not disappointed our family and continue to amaze us over and over again. She pours her heart into everything she does. She even had high praise from my 14-year-old son, which for anyone who has a teenage boy, knows that can be rare!"</p>
+                <h4 class="author-name">Laura McGean</h4>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="event-badge">Event D&eacute;cor</span>
+                <p class="quote-text">"Every project they create is absolutely amazing. The attention to detail, creativity, and effort they put into their balloon designs really shows. They turn simple balloons into incredible works of art."</p>
+                <h4 class="author-name">Kaitlin Larissa</h4>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="event-badge">Baby Shower</span>
+                <p class="quote-text">"We are so grateful to Marijana for decorating and making our baby shower truly special! She was extremely kind, patient, hands-on, and always willing to help. The decorations were stunning, and our guests couldn't stop complimenting how perfect everything looked."</p>
+                <h4 class="author-name">Erica Cortado Lacno</h4>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="event-badge">Event Design</span>
+                <p class="quote-text">"She has a great ability to reflect the interests and theme of an event in her designs, which makes everything feel personal and special. She also uses high-quality balloons, so the finished look is beautiful and lasts well beyond the event."</p>
+                <h4 class="author-name">Martina Duma-Ruth</h4>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="event-badge">Repeat Client</span>
+                <p class="quote-text">"Maja is incredibly passionate and talented. She puts so much love and care in everything that she creates. She has been brightening up our special occasions for many years."</p>
+                <h4 class="author-name">Marija Gavric</h4>
+            </div>
+        </div>
+
+        <p class="testimonial-trust-line">Thoughtfully designed, beautifully executed, and loved by clients across Edmonton.</p>
     </section>
 
     <!-- HOW IT WORKS SECTION -->
@@ -2210,6 +2373,10 @@
             </div>
         </div>
     </section>
+
+    
+    <!-- MICRO PROOF -->
+    <div class="micro-proof">Trusted by families and businesses across Edmonton to make every occasion unforgettable.</div>
 
     <!-- CONTACT SECTION -->
     <section class="contact" id="contact">
