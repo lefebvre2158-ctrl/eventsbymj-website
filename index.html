@@ -197,6 +197,15 @@
 
         .nav-cta::after { display: none !important; }
 
+        .nav-instagram {
+            display: flex;
+            align-items: center;
+            color: var(--purple-deep) !important;
+            transition: var(--transition);
+        }
+        .nav-instagram:hover { color: var(--gold) !important; transform: scale(1.15); }
+        .nav-instagram::after { display: none !important; }
+
         .nav-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 25px rgba(107, 58, 107, 0.4);
@@ -878,8 +887,17 @@
            ============================================ */
         .pricing {
             padding: 120px 0;
-            background: linear-gradient(180deg, var(--cream) 0%, var(--purple-pale) 100%);
+            background: linear-gradient(180deg, var(--cream) 0%, #f5ede4 50%, var(--purple-pale) 100%);
+            position: relative;
         }
+
+        .pricing-decor {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .pricing-decor-left { top: 40px; left: 30px; }
+        .pricing-decor-right { bottom: 40px; right: 30px; transform: rotate(180deg); }
 
         .pricing-grid {
             display: grid;
@@ -889,22 +907,33 @@
         }
 
         .pricing-card {
-            background: var(--white);
-            border-radius: 24px;
+            background: linear-gradient(135deg, var(--white) 0%, #fdfaf6 100%);
+            border-radius: 20px;
             padding: 48px 36px;
             text-align: center;
             transition: var(--transition);
             box-shadow: var(--shadow-soft);
             position: relative;
+            border: 1.5px solid var(--gold-light);
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 14px;
+            pointer-events: none;
         }
 
         .pricing-card.featured {
             transform: scale(1.05);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 12px 50px rgba(201, 168, 76, 0.2);
             border: 2px solid var(--gold);
+            background: linear-gradient(135deg, #fffdf8 0%, #fdf8f0 100%);
         }
 
-        .pricing-card.featured::before {
+        .pricing-card.featured::after {
             content: 'Most Popular';
             position: absolute;
             top: -14px; left: 50%;
@@ -922,7 +951,8 @@
 
         .pricing-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 12px 50px rgba(201, 168, 76, 0.25);
+            border-color: var(--gold);
         }
 
         .pricing-card.featured:hover { transform: scale(1.05) translateY(-8px); }
@@ -935,25 +965,27 @@
         }
 
         .pricing-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-family: var(--font-script);
+            font-size: 1.8rem;
+            font-weight: 400;
             color: var(--purple-deep);
             margin-bottom: 8px;
         }
 
         .pricing-card .price {
             font-family: var(--font-display);
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--purple-deep);
+            color: var(--gold);
             margin-bottom: 4px;
         }
 
         .pricing-card .price-currency {
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: 400;
             color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .pricing-features {
@@ -1577,6 +1609,7 @@
                 <a href="#pricing">Pricing</a>
                 <a href="#testimonials">Reviews</a>
                 <a href="#balloon-care">Balloon Care</a>
+                <a href="https://www.instagram.com/eventsbymj.edmonton/" target="_blank" rel="noopener noreferrer" class="nav-instagram" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg></a>
                 <a href="#contact" class="nav-cta">Book Now</a>
             </div>
             <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" role="button" tabindex="0">
@@ -1605,9 +1638,9 @@
         </div>
 
         <div class="hero-content">
-            <div class="hero-badge">Edmonton's Premier Balloon Styling</div>
+            <div class="hero-badge">Luxury Balloon Styling</div>
             <h1 class="hero-title">Events by MJ</h1>
-            <p class="hero-tagline">Every Detail Made Beautiful</p>
+            <p class="hero-tagline">Elevate Your Celebrations</p>
             <p class="hero-subtitle">Custom balloon stacks, arches, garlands, and themed event design for birthdays, baby showers, weddings, corporate events, and more.</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Book Your Event</a>
@@ -1675,7 +1708,7 @@
                     </div>
                     <h3>Signature Balloon Stack</h3>
                     <p>Our classic balloon stack — a stunning tower of coordinated balloons, perfect as a centerpiece or entryway accent for any celebration.</p>
-                    <a href="#pricing" class="service-link">From $50 CAD →</a>
+                    <a href="#pricing" class="service-link">From $250 CAD →</a>
                 </div>
                 <div class="service-card reveal">
                     <div class="service-icon">
@@ -1683,7 +1716,7 @@
                     </div>
                     <h3>Grande Signature Stack</h3>
                     <p>An elevated, oversized version of our signature design — commanding attention with premium balloons and striking proportions.</p>
-                    <a href="#pricing" class="service-link">From $75 CAD →</a>
+                    <a href="#pricing" class="service-link">From $350 CAD →</a>
                 </div>
                 <div class="service-card reveal">
                     <div class="service-icon">
@@ -1691,7 +1724,7 @@
                     </div>
                     <h3>Themed & Statement Stack</h3>
                     <p>Fully customized balloon installations tailored to your theme, colours, and vision — from whimsical to elegant.</p>
-                    <a href="#pricing" class="service-link">From $125 CAD →</a>
+                    <a href="#pricing" class="service-link">From $500+ CAD →</a>
                 </div>
                 <div class="service-card reveal">
                     <div class="service-icon">
@@ -1776,26 +1809,32 @@
          PRICING SECTION
          ============================================ -->
     <section class="pricing" id="pricing">
+        <div class="pricing-decor pricing-decor-left" aria-hidden="true">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" opacity="0.15"><circle cx="60" cy="60" r="55" stroke="#c9a84c" stroke-width="1.5"/><circle cx="60" cy="60" r="45" stroke="#c9a84c" stroke-width="0.8"/><path d="M60 5 C65 25, 75 30, 60 60 C45 30, 55 25, 60 5Z" fill="#d4859a" opacity="0.3"/></svg>
+        </div>
+        <div class="pricing-decor pricing-decor-right" aria-hidden="true">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" opacity="0.15"><circle cx="60" cy="60" r="55" stroke="#c9a84c" stroke-width="1.5"/><circle cx="60" cy="60" r="45" stroke="#c9a84c" stroke-width="0.8"/><path d="M60 5 C65 25, 75 30, 60 60 C45 30, 55 25, 60 5Z" fill="#d4859a" opacity="0.3"/></svg>
+        </div>
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">Investment</span>
-                <h2 class="section-title">Pricing</h2>
+                <span class="section-label">Luxury Balloon Styling</span>
+                <h2 class="section-title">Elevate Your Celebrations</h2>
                 <div class="section-divider"></div>
-                <p class="section-desc">Transparent pricing for our most popular balloon décor packages. Custom quotes available for larger installations.</p>
+                <p class="section-desc">Beautifully crafted balloon décor packages for every occasion. Custom quotes available for larger installations.</p>
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card reveal">
                     <div class="pricing-icon" style="background: var(--rose-pale);">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.5"><path d="M12 2C8 2 6 6 6 10c0 3 1 5 2 6h8c1-1 2-3 2-6 0-4-2-8-6-8z"/><path d="M10 16h4v3a2 2 0 01-4 0v-3z"/></svg>
                     </div>
-                    <h3>Signature Balloon Stack</h3>
-                    <div class="price">$50</div>
+                    <h3>Petite</h3>
+                    <div class="price">$250</div>
                     <div class="price-currency">CAD</div>
                     <ul class="pricing-features">
-                        <li>Classic coordinated balloon tower</li>
+                        <li>Classic coordinated balloon arrangement</li>
                         <li>Choice of 2-3 colours</li>
-                        <li>Standard size (approx. 5ft)</li>
-                        <li>Perfect for table centerpieces</li>
+                        <li>Perfect for intimate gatherings</li>
+                        <li>Tabletop or accent styling</li>
                         <li>Setup included</li>
                     </ul>
                     <a href="#contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Book Now</a>
@@ -1804,14 +1843,14 @@
                     <div class="pricing-icon" style="background: var(--purple-pale);">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple-deep)" stroke-width="1.5"><path d="M12 1C7 1 4 6 4 11c0 4 1.5 6.5 3 8h10c1.5-1.5 3-4 3-8 0-5-3-10-8-10z"/><path d="M9 19h6v2.5a3 3 0 01-6 0V19z"/></svg>
                     </div>
-                    <h3>Grande Signature Stack</h3>
-                    <div class="price">$75</div>
+                    <h3>Signature</h3>
+                    <div class="price">Starting at $350</div>
                     <div class="price-currency">CAD</div>
                     <ul class="pricing-features">
-                        <li>Premium oversized balloon tower</li>
+                        <li>Premium balloon styling</li>
                         <li>Choice of 3-4 colours</li>
-                        <li>Grande size (approx. 6-7ft)</li>
-                        <li>Includes metallic accents</li>
+                        <li>Statement-size arrangements</li>
+                        <li>Includes metallic & specialty accents</li>
                         <li>Delivery & setup included</li>
                         <li>Ideal for entryways & photo ops</li>
                     </ul>
@@ -1821,16 +1860,16 @@
                     <div class="pricing-icon" style="background: #fff5e6;">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M8 3C5 3 3 6 3 9c0 2.5 1 4.5 2 5.5h6c1-1 2-3 2-5.5C13 6 11 3 8 3z"/><path d="M16 5c-2.5 0-4 2.5-4 5s1 4 1.5 5h5c.5-1 1.5-2.5 1.5-5s-1.5-5-4-5z"/></svg>
                     </div>
-                    <h3>Themed & Statement Stack</h3>
-                    <div class="price">$125</div>
+                    <h3>Luxe</h3>
+                    <div class="price">Starting at $500+</div>
                     <div class="price-currency">CAD</div>
                     <ul class="pricing-features">
-                        <li>Fully custom themed design</li>
+                        <li>Fully custom luxury design</li>
                         <li>Unlimited colour palette</li>
-                        <li>Statement size (7ft+)</li>
-                        <li>Character or theme elements</li>
-                        <li>Premium balloon varieties</li>
-                        <li>Delivery & full setup</li>
+                        <li>Large-scale installations</li>
+                        <li>Premium & specialty balloon varieties</li>
+                        <li>Full event styling available</li>
+                        <li>Delivery & complete setup</li>
                     </ul>
                     <a href="#contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Book Now</a>
                 </div>
@@ -2113,7 +2152,7 @@
             <div class="footer-grid">
                 <div>
                     <div class="footer-brand">Events by MJ</div>
-                    <div class="footer-tagline">Every Detail Made Beautiful</div>
+                    <div class="footer-tagline">Elevate Your Celebrations</div>
                     <p class="footer-desc">Edmonton's premier balloon décor and event styling service. Turning celebrations into unforgettable experiences, one balloon at a time.</p>
                 </div>
                 <div class="footer-col">
@@ -2140,6 +2179,7 @@
                         <li><a href="tel:+17809012218">(780) 901-2218</a></li>
                         <li><a href="mailto:eventsbymj.edmonton@gmail.com">eventsbymj.edmonton@gmail.com</a></li>
                         <li>Edmonton, AB, Canada</li>
+                        <li><a href="https://www.instagram.com/eventsbymj.edmonton/" target="_blank" rel="noopener noreferrer">Follow us on Instagram</a></li>
                     </ul>
                 </div>
             </div>
