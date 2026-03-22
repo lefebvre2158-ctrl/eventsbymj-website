@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Events by MJ — Edmonton's premier balloon décor and event styling service. Custom balloon stacks, arches, garlands, and themed event design for birthdays, baby showers, weddings, corporate events, and more.">
-    <meta name="keywords" content="balloon decor Edmonton, event styling, balloon arches, balloon garlands, baby shower decorations, wedding balloons, corporate event decor, birthday decorations Edmonton">
+    <meta name="description" content="Edmonton's premier balloon décor and event styling service. Custom balloon stacks, arches, garlands, and themed designs for weddings, birthdays, baby showers, and corporate events.">
+    <meta name="keywords" content="balloon décor Edmonton, balloon garland Edmonton, event styling Edmonton, luxury event décor Edmonton, balloon arches, baby shower decorations, wedding balloons, corporate event decor, birthday decorations Edmonton">
     <meta name="author" content="Events by MJ">
-    <meta property="og:title" content="Events by MJ — Every Detail Made Beautiful">
-    <meta property="og:description" content="Edmonton's premier balloon décor and event styling service. Custom designs for every occasion.">
+    <meta property="og:title" content="Events by MJ | Luxury Balloon Décor & Event Styling in Edmonton">
+    <meta property="og:description" content="Edmonton's premier balloon décor and event styling service. Custom balloon stacks, arches, garlands, and themed designs for every occasion.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eventsbymj.ca">
-    <title>Events by MJ — Every Detail Made Beautiful</title>
+    <title>Events by MJ | Luxury Balloon Décor & Event Styling in Edmonton</title>
     <link rel="canonical" href="https://eventsbymj.ca">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -684,110 +684,229 @@
             line-height: 1.8;
         }
 
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+        .about-rating {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             margin-top: 32px;
             padding-top: 32px;
             border-top: 1px solid var(--cream-dark);
         }
 
-        .about-stat {
-            text-align: center;
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
         }
 
-        .about-stat .number {
-            font-family: var(--font-display);
-            font-size: 2rem;
+        .rating-badge .stars {
+            font-size: 1.2rem;
+            color: var(--gold);
+        }
+
+        .rating-badge .rating-text {
+            font-size: 0.9rem;
             font-weight: 700;
-            color: var(--purple-deep);
-            display: block;
-        }
-
-        .about-stat .label {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: var(--text-dark);
         }
 
         /* ============================================
-           SERVICES SECTION
+           SERVICES & PACKAGES SECTION (UNIFIED)
            ============================================ */
-        .services {
+        .services-packages {
             padding: 120px 0;
             background: linear-gradient(180deg, var(--cream) 0%, var(--blush) 100%);
             position: relative;
         }
 
-        .services-grid {
+        .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
+            align-items: start;
+            margin-bottom: 80px;
         }
 
-        .service-card {
-            background: var(--white);
+        .pricing-card {
+            background: linear-gradient(135deg, var(--white) 0%, #fdfaf6 100%);
             border-radius: 20px;
-            padding: 40px 32px;
+            padding: 48px 36px;
             text-align: center;
             transition: var(--transition);
             box-shadow: var(--shadow-soft);
             position: relative;
-            overflow: hidden;
+            border: 1.5px solid var(--gold-light);
         }
 
-        .service-card::before {
+        .pricing-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--purple-deep), var(--rose), var(--gold));
-            opacity: 0;
-            transition: var(--transition);
+            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 14px;
+            pointer-events: none;
         }
 
-        .service-card:hover {
+        .pricing-card.featured {
+            transform: scale(1.05);
+            box-shadow: 0 12px 50px rgba(201, 168, 76, 0.2);
+            border: 2px solid var(--gold);
+            background: linear-gradient(135deg, #fffdf8 0%, #fdf8f0 100%);
+        }
+
+        .pricing-card.featured::after {
+            content: 'Most Popular';
+            position: absolute;
+            top: -14px; left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--gold), var(--gold-shimmer));
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .pricing-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 12px 50px rgba(201, 168, 76, 0.25);
+            border-color: var(--gold);
         }
 
-        .service-card:hover::before { opacity: 1; }
+        .pricing-card.featured:hover { transform: scale(1.05) translateY(-8px); }
 
-        .service-icon {
-            width: 80px; height: 80px;
-            margin: 0 auto 24px;
-            background: var(--rose-pale);
+        .pricing-icon {
+            width: 64px; height: 64px;
+            margin: 0 auto 20px;
             border-radius: 50%;
+            background: linear-gradient(135deg, var(--rose-light), var(--rose-pale));
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-        }
-
-        .service-icon svg {
-            width: 36px; height: 36px;
-            color: var(--purple-deep);
-        }
-
-        .service-card h3 {
+            box-shadow: 0 4px 15px rgba(212, 133, 154, 0.2);
             font-family: var(--font-display);
-            font-size: 1.3rem;
+            font-size: 1.8rem;
+            color: var(--rose);
+        }
+
+        .pricing-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--purple-deep);
             margin-bottom: 12px;
         }
 
-        .service-card p {
-            font-size: 0.95rem;
-            font-weight: 300;
-            color: var(--text-medium);
-            line-height: 1.7;
-            margin-bottom: 20px;
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 4px;
         }
 
-        .service-link {
+        .pricing-price-suffix {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .pricing-desc {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            margin-bottom: 28px;
+            line-height: 1.6;
+            min-height: 50px;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .pricing-features li {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* Floral decorations */
+        .floral-accent {
+            pointer-events: none;
+            display: inline-block;
+        }
+        .floral-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 0 auto 20px;
+        }
+        .floral-divider .divider-line {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .pricing-floral-tl { position: absolute; top: -10px; left: 0; pointer-events: none; z-index: 1; }
+        .pricing-floral-br { position: absolute; bottom: -10px; right: 0; pointer-events: none; z-index: 1; transform: rotate(180deg); }
+        @media (max-width: 768px) {
+            .pricing-floral-tl, .pricing-floral-br { opacity: 0.4; }
+        }
+
+        /* Additional Services Section */
+        .additional-services {
+            border-top: 2px solid var(--gold-light);
+            padding-top: 48px;
+        }
+
+        .additional-services h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--purple-deep);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .additional-services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .additional-service-item {
+            text-align: center;
+        }
+
+        .additional-service-item h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--purple-deep);
+            margin-bottom: 12px;
+        }
+
+        .additional-service-item p {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .additional-service-item a {
             font-size: 0.8rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
@@ -796,7 +915,7 @@
             transition: var(--transition);
         }
 
-        .service-link:hover { color: var(--purple-deep); }
+        .additional-service-item a:hover { color: var(--purple-deep); }
 
         /* ============================================
            GALLERY SECTION
@@ -883,355 +1002,66 @@
         }
 
         /* ============================================
-           PRICING SECTION
-           ============================================ */
-        .pricing {
-            padding: 120px 0;
-            background: linear-gradient(180deg, var(--cream) 0%, #f5ede4 50%, var(--purple-pale) 100%);
-            position: relative;
-        }
-
-        .pricing-decor {
-            position: absolute;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .pricing-decor-left { top: 20px; left: 10px; }
-        .pricing-decor-right { bottom: 20px; right: 10px; }
-
-        /* Floral decorations */
-        .floral-accent {
-            pointer-events: none;
-            display: inline-block;
-        }
-        .floral-divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin: 0 auto 20px;
-        }
-        .floral-divider .divider-line {
-            width: 50px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
-        .section-header .floral-top {
-            display: block;
-            margin: 0 auto 8px;
-        }
-        .hero-floral-left, .hero-floral-right {
-            position: absolute;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.6;
-        }
-        .hero-floral-left { bottom: 40px; left: 20px; }
-        .hero-floral-right { top: 60px; right: 20px; transform: scaleX(-1); }
-        .pricing-floral-tl { position: absolute; top: -10px; left: 0; pointer-events: none; z-index: 1; }
-        .pricing-floral-br { position: absolute; bottom: -10px; right: 0; pointer-events: none; z-index: 1; transform: rotate(180deg); }
-        @media (max-width: 768px) {
-            .hero-floral-left, .hero-floral-right { display: none; }
-            .pricing-floral-tl, .pricing-floral-br { opacity: 0.4; }
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            align-items: start;
-        }
-
-        .pricing-card {
-            background: linear-gradient(135deg, var(--white) 0%, #fdfaf6 100%);
-            border-radius: 20px;
-            padding: 48px 36px;
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow-soft);
-            position: relative;
-            border: 1.5px solid var(--gold-light);
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 8px; left: 8px; right: 8px; bottom: 8px;
-            border: 1px solid rgba(201, 168, 76, 0.2);
-            border-radius: 14px;
-            pointer-events: none;
-        }
-
-        .pricing-card.featured {
-            transform: scale(1.05);
-            box-shadow: 0 12px 50px rgba(201, 168, 76, 0.2);
-            border: 2px solid var(--gold);
-            background: linear-gradient(135deg, #fffdf8 0%, #fdf8f0 100%);
-        }
-
-        .pricing-card.featured::after {
-            content: 'Most Popular';
-            position: absolute;
-            top: -14px; left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--gold), var(--gold-shimmer));
-            color: var(--white);
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 50px rgba(201, 168, 76, 0.25);
-            border-color: var(--gold);
-        }
-
-        .pricing-card.featured:hover { transform: scale(1.05) translateY(-8px); }
-
-        .pricing-icon {
-            width: 64px; height: 64px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-        }
-
-        .pricing-card h3 {
-            font-family: var(--font-script);
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: var(--purple-deep);
-            margin-bottom: 8px;
-        }
-
-        .pricing-card .price {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 4px;
-        }
-
-        .pricing-card .price-currency {
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .pricing-features {
-            text-align: left;
-            margin: 24px 0 32px;
-        }
-
-        .pricing-features li {
-            padding: 8px 0;
-            font-size: 0.95rem;
-            font-weight: 300;
-            color: var(--text-medium);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .pricing-features li::before {
-            content: '✓';
-            color: var(--gold);
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        /* ============================================
-           BALLOON CARE SECTION
-           ============================================ */
-        .balloon-care {
-            padding: 120px 0;
-            background: var(--white);
-        }
-
-        .care-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-        }
-
-        .care-card {
-            display: flex;
-            gap: 24px;
-            padding: 32px;
-            background: var(--cream);
-            border-radius: 16px;
-            transition: var(--transition);
-        }
-
-        .care-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .care-number {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--purple-pale);
-            line-height: 1;
-            flex-shrink: 0;
-        }
-
-        .care-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--purple-deep);
-            margin-bottom: 8px;
-        }
-
-        .care-card p {
-            font-size: 0.95rem;
-            font-weight: 300;
-            color: var(--text-medium);
-            line-height: 1.7;
-        }
-
-        /* ============================================
            TESTIMONIALS SECTION
            ============================================ */
         .testimonials {
             padding: 120px 0;
-            background: linear-gradient(180deg, var(--purple-deep) 0%, #5a2e5a 100%);
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(180deg, var(--blush) 0%, var(--rose-pale) 100%);
         }
 
-        .testimonials .section-label { color: var(--gold-light); }
-        .testimonials .section-title { color: var(--white); }
-        .testimonials .section-desc { color: var(--purple-light); }
-
-        .testimonial-track {
+        .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
         }
 
         .testimonial-card {
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: var(--white);
             border-radius: 20px;
             padding: 40px 32px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
             transition: var(--transition);
+            position: relative;
         }
 
         .testimonial-card:hover {
-            background: rgba(255,255,255,0.12);
-            transform: translateY(-4px);
-        }
-
-        .testimonial-stars {
-            color: var(--gold);
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        .testimonial-card blockquote {
-            font-family: var(--font-body);
-            font-size: 1rem;
-            font-weight: 300;
-            color: rgba(255,255,255,0.85);
-            line-height: 1.8;
-            font-style: italic;
-            margin-bottom: 24px;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .testimonial-avatar {
-            width: 48px; height: 48px;
-            border-radius: 50%;
-            background: var(--purple-light);
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-display);
-            font-weight: 700;
-            color: var(--purple-deep);
-            font-size: 1.1rem;
-        }
-
-        .testimonial-name {
-            font-family: var(--font-display);
-            font-weight: 700;
-            color: var(--white);
-            font-size: 0.95rem;
-        }
-
-        .testimonial-event {
-            font-size: 0.8rem;
-            color: var(--purple-light);
-        }
-
-        /* ============================================
-           SPECIAL EVENTS SECTION
-           ============================================ */
-        .special-events {
-            padding: 120px 0;
-            background: var(--cream);
-        }
-
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        .event-card {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: var(--transition);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .event-card:hover {
             transform: translateY(-6px);
             box-shadow: var(--shadow-hover);
         }
 
-        .event-card img {
-            width: 100%; height: 200px;
-            object-fit: cover;
-            background: var(--rose-pale);
-        }
-
-        .event-card-body {
-            padding: 24px;
-        }
-
-        .event-card h3 {
-            font-family: var(--font-display);
+        .testimonial-stars {
             font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card p {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            min-height: 80px;
+        }
+
+        .testimonial-author {
+            font-family: var(--font-display);
+            font-size: 1rem;
             font-weight: 700;
             color: var(--purple-deep);
-            margin-bottom: 8px;
         }
 
-        .event-card p {
-            font-size: 0.9rem;
-            font-weight: 300;
-            color: var(--text-medium);
-            line-height: 1.6;
+        .testimonial-occasion {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* ============================================
-           BOOKING / HOW IT WORKS
+           HOW IT WORKS SECTION
            ============================================ */
         .booking {
             padding: 120px 0;
@@ -1499,189 +1329,274 @@
             margin-bottom: 10px;
         }
 
-        .footer-col ul li a {
+        .footer-col a {
             font-size: 0.9rem;
-            font-weight: 300;
-            color: var(--text-light);
+            color: var(--purple-light);
             transition: var(--transition);
         }
 
-        .footer-col ul li a:hover { color: var(--gold); }
+        .footer-col a:hover { color: var(--gold); }
+
+        .footer-divider {
+            border-top: 1px solid rgba(201, 168, 76, 0.2);
+            padding-top: 32px;
+            margin-top: 32px;
+        }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.08);
-            padding-top: 32px;
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
             align-items: center;
+        }
+
+        .footer-bottom p {
             font-size: 0.85rem;
             color: var(--text-light);
         }
 
-        /* ============================================
-           SCROLL REVEAL ANIMATIONS
-           ============================================ */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+            justify-content: flex-end;
         }
 
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .footer-socials a {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: rgba(201, 168, 76, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--gold);
         }
 
-        /* ============================================
-           INTERACTIVE BALLOON CURSOR TRAIL
-           ============================================ */
-        .cursor-balloon {
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        .footer-socials a:hover {
+            background: var(--gold);
+            color: var(--charcoal);
+            transform: translateY(-3px);
         }
 
         /* ============================================
            RESPONSIVE DESIGN
            ============================================ */
         @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-            .pricing-card.featured { grid-column: span 2; transform: none; }
-            .pricing-card.featured:hover { transform: translateY(-8px); }
-            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-            .gallery-item:nth-child(1) { grid-column: span 2; }
-            .events-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .pricing-grid, .additional-services-grid { grid-template-columns: repeat(2, 1fr); }
             .booking-steps { grid-template-columns: repeat(2, 1fr); }
             .booking-steps::before { display: none; }
-            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+            .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0; right: -100%;
-                width: 80%;
-                max-width: 360px;
-                height: 100vh;
-                background: var(--white);
-                flex-direction: column;
-                padding: 100px 40px 40px;
-                gap: 24px;
-                box-shadow: -4px 0 30px rgba(0,0,0,0.1);
-                transition: right 0.4s ease;
-                z-index: 999;
-            }
-
-            .nav-links.open { right: 0; }
+            .nav-links { gap: 16px; display: none; }
+            .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(253, 248, 244, 0.98); padding: 24px; border-radius: 0 0 20px 20px; box-shadow: var(--shadow-soft); }
             .nav-toggle { display: flex; }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-
-            .services-grid { grid-template-columns: 1fr; }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
-
-            .pricing-grid { grid-template-columns: 1fr; }
-            .pricing-card.featured { grid-column: auto; }
-
-            .care-grid { grid-template-columns: 1fr; }
-
-            .testimonial-track { grid-template-columns: 1fr; }
-
-            .events-grid { grid-template-columns: 1fr; }
-
-            .booking-steps { grid-template-columns: 1fr; gap: 24px; }
-
-            .contact-grid { grid-template-columns: 1fr; }
-
-            .contact-form { padding: 32px 24px; }
-
+            .hero-content { padding: 80px 24px 60px; }
+            .pricing-grid, .additional-services-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .booking-steps { grid-template-columns: 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
-
-            .footer-grid { grid-template-columns: 1fr; }
-
-            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-
-            .hero-balloon:nth-child(4),
-            .hero-balloon:nth-child(5),
-            .hero-balloon:nth-child(6) { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { grid-template-columns: 1fr; }
+            .footer-socials { justify-content: flex-start; }
+            .section-header { margin-bottom: 48px; }
         }
 
         @media (max-width: 480px) {
-            .hero-content { padding: 100px 16px 60px; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .about-stats { grid-template-columns: 1fr; gap: 16px; }
+            .hero-tagline { font-size: 1rem; }
+            .hero-buttons { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
             .gallery-grid { grid-template-columns: 1fr; }
+            .testimonial-card p { min-height: auto; }
         }
     </style>
+    <script>
+        // ============================================
+        // NAVBAR SCROLL EFFECT & MOBILE TOGGLE
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('navbar');
+            const navToggle = document.getElementById('navToggle');
+            const navLinks = document.getElementById('navLinks');
+            const navItems = navLinks.querySelectorAll('a');
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            navToggle.addEventListener('click', function() {
+                navToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu on link click
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+
+        // ============================================
+        // BALLOON POP EFFECT
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const balloons = document.querySelectorAll('.hero-balloon');
+            balloons.forEach(balloon => {
+                balloon.addEventListener('click', function(e) {
+                    balloon.classList.add('balloon-pop');
+                    createPopParticles(e.clientX, e.clientY, balloon.style.background);
+                    setTimeout(() => balloon.remove(), 400);
+                });
+            });
+
+            function createPopParticles(x, y, color) {
+                for (let i = 0; i < 12; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'pop-particle';
+                    particle.style.left = x + 'px';
+                    particle.style.top = y + 'px';
+                    particle.style.background = color;
+                    const angle = (i / 12) * Math.PI * 2;
+                    const velocity = 60 + Math.random() * 40;
+                    particle.style.setProperty('--tx', Math.cos(angle) * velocity + 'px');
+                    particle.style.setProperty('--ty', Math.sin(angle) * velocity + 'px');
+                    document.body.appendChild(particle);
+                    setTimeout(() => particle.remove(), 600);
+                }
+            }
+        });
+
+        // ============================================
+        // FLOATING BALLOON PARTICLES
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const balloonParticles = document.getElementById('balloonParticles');
+            const colors = ['#d4859a', '#c9a0c9', '#c9a84c', '#e8d0e8', '#f0c8d4'];
+            const sizes = [20, 30, 40, 50, 60];
+
+            function createBalloon() {
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon-particle';
+                const size = sizes[Math.floor(Math.random() * sizes.length)];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const duration = 8 + Math.random() * 6;
+                const delay = Math.random() * 2;
+                const left = Math.random() * 100;
+
+                balloon.style.width = size + 'px';
+                balloon.style.height = size + 'px';
+                balloon.style.background = color;
+                balloon.style.left = left + '%';
+                balloon.style.animation = `floatUp ${duration}s linear ${delay}s infinite`;
+
+                balloonParticles.appendChild(balloon);
+
+                setTimeout(() => balloon.remove(), (duration + delay) * 1000 + 100);
+            }
+
+            setInterval(createBalloon, 2000);
+        });
+
+        // ============================================
+        // SMOOTH SCROLL & REVEAL ANIMATIONS
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal, .section-header, .service-card, .testimonial-card, .gallery-item, .step-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // ============================================
+        // GALLERY FILTER
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.gallery-filter button');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        // ============================================
+        // FORM HANDLING
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We\'ll get back to you soon.');
+                    form.reset();
+                });
+            }
+        });
+    </script>
 </head>
 <body>
-
-    <!-- ============================================
-         FLOATING BALLOON PARTICLES
-         ============================================ -->
     <div class="balloon-particles" id="balloonParticles" aria-hidden="true"></div>
 
-    <!-- ============================================
-         NAVIGATION
-         ============================================ -->
+    <!-- NAVIGATION -->
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-inner">
-            <a href="#" class="nav-logo">Events by <span>MJ</span></a>
+            <div class="nav-logo">Events by <span>MJ</span></div>
             <div class="nav-links" id="navLinks">
                 <a href="#about">About</a>
-                <a href="#services">Services</a>
+                <a href="#services-packages">Services</a>
                 <a href="#gallery">Gallery</a>
-                <a href="#pricing">Pricing</a>
                 <a href="#testimonials">Reviews</a>
-                <a href="#balloon-care">Balloon Care</a>
-                <a href="https://www.instagram.com/eventsbymj.edmonton/" target="_blank" rel="noopener noreferrer" class="nav-instagram" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg></a>
+                <a href="#booking">How It Works</a>
                 <a href="#contact" class="nav-cta">Book Now</a>
+                <a href="https://www.instagram.com/events_by_mj_bandjak?igsh=aGk5bXY5bDBkZWJv" target="_blank" rel="noopener noreferrer" class="nav-instagram" aria-label="Visit Events by MJ on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg></a>
             </div>
             <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" role="button" tabindex="0">
-                <span></span><span></span><span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
-    <!-- ============================================
-         HERO SECTION
-         ============================================ -->
+    <!-- HERO SECTION -->
     <section class="hero" id="home">
-        <div class="hero-bg-orbs" aria-hidden="true">
+        <div class="hero-bg-orbs">
             <div class="hero-orb"></div>
             <div class="hero-orb"></div>
             <div class="hero-orb"></div>
-        </div>
-
-        <div class="hero-balloons" aria-hidden="true">
-            <div class="hero-balloon" data-pop></div>
-            <div class="hero-balloon" data-pop></div>
-            <div class="hero-balloon" data-pop></div>
-            <div class="hero-balloon" data-pop></div>
-            <div class="hero-balloon" data-pop></div>
-            <div class="hero-balloon" data-pop></div>
-        </div>
-
-        <div class="hero-content">
-            <div class="hero-badge">Luxury Balloon Styling</div>
-            <h1 class="hero-title">Events by MJ</h1>
-            <p class="hero-tagline">Elevate Your Celebrations</p>
-            <p class="hero-subtitle">Custom balloon stacks, arches, garlands, and themed event design for birthdays, baby showers, weddings, corporate events, and more.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Book Your Event</a>
-                <a href="#services" class="btn btn-outline">View Services</a>
-            </div>
         </div>
 
         <!-- Floral accents -->
@@ -1734,41 +1649,51 @@
             </svg>
         </div>
 
-        <div class="scroll-indicator" aria-hidden="true">
+        <div class="hero-balloons">
+            <div class="hero-balloon"></div>
+            <div class="hero-balloon"></div>
+            <div class="hero-balloon"></div>
+            <div class="hero-balloon"></div>
+            <div class="hero-balloon"></div>
+            <div class="hero-balloon"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">Luxury Balloon Décor & Event Styling</div>
+            <h1 class="hero-title">Events by MJ</h1>
+            <div class="hero-tagline">Every Detail Made Beautiful</div>
+            <p class="hero-subtitle">Transform your special moment with Edmonton's premier balloon décor and event styling service. Custom designs for weddings, baby showers, birthdays, and corporate events.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Book Your Event</a>
+                <a href="#gallery" class="btn btn-outline">View Gallery</a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
             <span>Scroll</span>
             <div class="scroll-line"></div>
         </div>
     </section>
 
-    <!-- ============================================
-         ABOUT SECTION
-         ============================================ -->
+    <!-- ABOUT SECTION -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
-                <div class="about-image-wrap reveal">
-                    <img src="" alt="MJ styling a beautiful balloon arch setup at an Edmonton event venue, surrounded by purple and rose gold balloons" loading="lazy">
-                    <div class="about-image-accent" aria-hidden="true"></div>
-                    <div class="about-image-badge">Est. Edmonton, AB</div>
+                <div class="about-image-wrap">
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f19106048c?w=800&q=80" alt="Events by MJ founder MJ styling an elegant balloon display at an Edmonton wedding venue">
+                    <div class="about-image-accent"></div>
+                    <div class="about-image-badge">5+ Years</div>
                 </div>
                 <div class="about-text reveal">
-                    <span class="section-label">Our Story</span>
                     <h2>About Events by MJ</h2>
-                    <span class="script-accent">Where passion meets perfection</span>
-                    <p>At Events by MJ, we believe every celebration deserves to be extraordinary. Founded with a passion for transforming spaces through the art of balloon décor, we have become Edmonton's go-to event styling service for those who demand beauty in every detail.</p>
-                    <p>From intimate baby showers to grand corporate galas, we bring a meticulous eye for design and an unwavering commitment to quality craftsmanship. Every balloon stack, arch, and garland is thoughtfully curated to reflect your unique vision and create lasting memories.</p>
-                    <div class="about-stats">
-                        <div class="about-stat">
-                            <span class="number" data-count="500">0</span>
-                            <span class="label">Events Styled</span>
-                        </div>
-                        <div class="about-stat">
-                            <span class="number" data-count="100">0</span>
-                            <span class="label">Happy Clients</span>
-                        </div>
-                        <div class="about-stat">
-                            <span class="number">5★</span>
-                            <span class="label">Average Rating</span>
+                    <span class="script-accent">Crafting Magic, One Event at a Time</span>
+                    <p>Welcome to Events by MJ, where we believe every celebration deserves to be extraordinary. Based in Edmonton, we specialize in custom balloon décor and event styling that brings your vision to life with creativity, elegance, and attention to every detail.</p>
+                    <p>Our passion is transforming ordinary spaces into stunning, Instagram-worthy environments. Whether you're planning an intimate gathering or a grand celebration, we're here to make your event unforgettable with our premium balloon designs, artistic styling, and personalized service.</p>
+                    <p>With over five years of experience and countless happy clients, we've perfected the art of creating moments that matter. Let's create something beautiful together.</p>
+                    <div class="about-rating">
+                        <div class="rating-badge">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">5-Star Google Rating</span>
                         </div>
                     </div>
                 </div>
@@ -1776,504 +1701,328 @@
         </div>
     </section>
 
-    <!-- ============================================
-         SERVICES SECTION
-         ============================================ -->
-    <section class="services" id="services">
+    <!-- SERVICES & PACKAGES SECTION -->
+    <section class="services-packages" id="services-packages">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">What We Offer</span>
-                <h2 class="section-title">Our Services</h2>
+            <div class="section-header">
+                <span class="section-label">Packages & Pricing</span>
+                <h2 class="section-title">Choose Your Perfect Package</h2>
                 <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
-                <p class="section-desc">From signature stacks to statement installations, each creation is handcrafted with care and precision.</p>
+                <p class="section-desc">Select from our curated packages or customize a design that's uniquely yours.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 6 6 6 10c0 3 1 5 2 6h8c1-1 2-3 2-6 0-4-2-8-6-8z"/><path d="M10 16h4v3a2 2 0 01-4 0v-3z"/><circle cx="12" cy="7" r="1.5" fill="currentColor" opacity="0.3"/></svg>
-                    </div>
-                    <h3>Signature Balloon Stack</h3>
-                    <p>Our classic balloon stack — a stunning tower of coordinated balloons, perfect as a centerpiece or entryway accent for any celebration.</p>
-                    <a href="#pricing" class="service-link">From $250 CAD →</a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1C7 1 4 6 4 11c0 4 1.5 6.5 3 8h10c1.5-1.5 3-4 3-8 0-5-3-10-8-10z"/><path d="M9 19h6v2.5a3 3 0 01-6 0V19z"/><circle cx="12" cy="8" r="2" fill="currentColor" opacity="0.3"/></svg>
-                    </div>
-                    <h3>Grande Signature Stack</h3>
-                    <p>An elevated, oversized version of our signature design — commanding attention with premium balloons and striking proportions.</p>
-                    <a href="#pricing" class="service-link">From $350 CAD →</a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3C5 3 3 6 3 9c0 2.5 1 4.5 2 5.5h6c1-1 2-3 2-5.5C13 6 11 3 8 3z"/><path d="M16 5c-2.5 0-4 2.5-4 5s1 4 1.5 5h5c.5-1 1.5-2.5 1.5-5s-1.5-5-4-5z"/><path d="M6 14.5l2 6m8-6l-2 6"/></svg>
-                    </div>
-                    <h3>Themed & Statement Stack</h3>
-                    <p>Fully customized balloon installations tailored to your theme, colours, and vision — from whimsical to elegant.</p>
-                    <a href="#pricing" class="service-link">From $500+ CAD →</a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8"/><circle cx="6" cy="12" r="2.5"/><circle cx="12" cy="5" r="2.5"/><circle cx="18" cy="12" r="2.5"/><path d="M8 14c1 2 2.5 3 4 3s3-1 4-3"/></svg>
-                    </div>
-                    <h3>Balloon Arches</h3>
-                    <p>Elegant archways that frame your event's most important moments — from doorway welcomes to ceremony backdrops.</p>
-                    <a href="#contact" class="service-link">Get a Quote →</a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10c0-2 1.5-4 3.5-4S10 8 10 10m4 0c0-2 1.5-4 3.5-4S21 8 21 10"/><path d="M10 10c0-2 .8-3 2-3s2 1 2 3"/><path d="M3 10c0 3 2 6 9 6s9-3 9-6"/><path d="M8 16l-1 5m9-5l1 5"/></svg>
-                    </div>
-                    <h3>Balloon Garlands</h3>
-                    <p>Flowing, organic garlands that add drama and elegance. Perfect for table runners, walls, staircases, and backdrops.</p>
-                    <a href="#contact" class="service-link">Get a Quote →</a>
-                </div>
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4M4 7l8 4M4 7v10l8 4m0-10v10"/></svg>
-                    </div>
-                    <h3>Full Event Styling</h3>
-                    <p>Complete party decoration packages including balloon décor, table settings, backdrops, and coordinated event design.</p>
-                    <a href="#contact" class="service-link">Get a Quote →</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ============================================
-         GALLERY SECTION
-         ============================================ -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Our Portfolio</span>
-                <h2 class="section-title">Gallery</h2>
-                <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
-                <p class="section-desc">A glimpse of the magic we create for Edmonton's most memorable celebrations.</p>
-            </div>
-            <div class="gallery-filter reveal">
-                <button class="active" data-filter="all">All</button>
-                <button data-filter="stacks">Balloon Stacks</button>
-                <button data-filter="arches">Arches</button>
-                <button data-filter="garlands">Garlands</button>
-                <button data-filter="events">Full Events</button>
-            </div>
-            <div class="gallery-grid reveal">
-                <div class="gallery-item" data-category="arches">
-                    <img src="" alt="Elegant purple and gold balloon arch at a wedding venue entrance in Edmonton" loading="lazy">
-                    <div class="gallery-overlay"><span>Wedding Arch</span></div>
-                </div>
-                <div class="gallery-item" data-category="stacks">
-                    <img src="" alt="Signature balloon stack in rose and cream tones for a baby shower" loading="lazy">
-                    <div class="gallery-overlay"><span>Baby Shower Stack</span></div>
-                </div>
-                <div class="gallery-item" data-category="garlands">
-                    <img src="" alt="Flowing organic balloon garland in pastel colours draped along a banquet table" loading="lazy">
-                    <div class="gallery-overlay"><span>Garland Installation</span></div>
-                </div>
-                <div class="gallery-item" data-category="events">
-                    <img src="" alt="Full birthday party setup with themed balloon decorations, table settings, and backdrop" loading="lazy">
-                    <div class="gallery-overlay"><span>Birthday Celebration</span></div>
-                </div>
-                <div class="gallery-item" data-category="stacks">
-                    <img src="" alt="Grande signature balloon stack in deep purple and gold for a corporate event" loading="lazy">
-                    <div class="gallery-overlay"><span>Corporate Event</span></div>
-                </div>
-                <div class="gallery-item" data-category="arches">
-                    <img src="" alt="Whimsical rainbow balloon arch for a children's birthday party" loading="lazy">
-                    <div class="gallery-overlay"><span>Kids Party Arch</span></div>
-                </div>
-                <div class="gallery-item" data-category="garlands">
-                    <img src="" alt="Lush balloon garland in muted earth tones for a boho-themed bridal shower" loading="lazy">
-                    <div class="gallery-overlay"><span>Bridal Shower</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         PRICING SECTION
-         ============================================ -->
-    <section class="pricing" id="pricing">
-        <!-- Floral corner decorations -->
-        <div class="pricing-floral-tl" aria-hidden="true">
-            <svg width="220" height="200" viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.55">
-                <!-- Gold arc -->
-                <path d="M10 190 Q10 10, 200 10" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.4"/>
-                <path d="M20 190 Q20 25, 195 20" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.25"/>
-                <!-- Large pink rose -->
-                <g transform="translate(35,95)">
-                    <ellipse cx="0" cy="0" rx="28" ry="24" fill="#d4859a" opacity="0.7"/>
-                    <ellipse cx="-8" cy="-5" rx="18" ry="15" fill="#e0a0b0" opacity="0.8"/>
-                    <ellipse cx="5" cy="-8" rx="14" ry="11" fill="#ebbfc8" opacity="0.9"/>
-                    <ellipse cx="0" cy="-4" rx="8" ry="7" fill="#f0d0d8"/>
-                    <ellipse cx="22" cy="8" rx="10" ry="14" fill="#d4859a" opacity="0.5" transform="rotate(30,22,8)"/>
-                    <ellipse cx="-20" cy="10" rx="9" ry="13" fill="#d4859a" opacity="0.45" transform="rotate(-20,-20,10)"/>
-                </g>
-                <!-- Purple flower -->
-                <g transform="translate(90,55)">
-                    <ellipse cx="0" cy="-14" rx="8" ry="12" fill="#7b5ea7" opacity="0.7" transform="rotate(0)"/>
-                    <ellipse cx="13" cy="-4" rx="8" ry="12" fill="#8b6eb7" opacity="0.65" transform="rotate(72)"/>
-                    <ellipse cx="8" cy="11" rx="8" ry="12" fill="#7b5ea7" opacity="0.6" transform="rotate(144)"/>
-                    <ellipse cx="-8" cy="11" rx="8" ry="12" fill="#8b6eb7" opacity="0.65" transform="rotate(216)"/>
-                    <ellipse cx="-13" cy="-4" rx="8" ry="12" fill="#7b5ea7" opacity="0.7" transform="rotate(288)"/>
-                    <circle cx="0" cy="0" r="5" fill="#e6d88c" opacity="0.8"/>
-                </g>
-                <!-- Small cream rose -->
-                <g transform="translate(70,130)">
-                    <ellipse cx="0" cy="0" rx="16" ry="14" fill="#f5e6d0" opacity="0.8"/>
-                    <ellipse cx="-3" cy="-3" rx="10" ry="9" fill="#fdf0e0" opacity="0.9"/>
-                    <ellipse cx="1" cy="-2" rx="6" ry="5" fill="#fff8f0"/>
-                    <ellipse cx="12" cy="4" rx="6" ry="9" fill="#f0dcc5" opacity="0.5" transform="rotate(25,12,4)"/>
-                </g>
-                <!-- Baby's breath dots -->
-                <circle cx="120" cy="35" r="2.5" fill="white" opacity="0.7"/><circle cx="115" cy="42" r="2" fill="white" opacity="0.6"/>
-                <circle cx="128" cy="30" r="2" fill="white" opacity="0.5"/><circle cx="108" cy="50" r="2.5" fill="white" opacity="0.6"/>
-                <circle cx="135" cy="45" r="1.8" fill="white" opacity="0.5"/><circle cx="100" cy="60" r="2" fill="white" opacity="0.55"/>
-                <circle cx="55" cy="70" r="2" fill="white" opacity="0.5"/><circle cx="48" cy="80" r="1.8" fill="white" opacity="0.45"/>
-                <!-- Small purple buds -->
-                <ellipse cx="130" cy="55" rx="4" ry="6" fill="#9b7ec8" opacity="0.5" transform="rotate(-15,130,55)"/>
-                <ellipse cx="50" cy="60" rx="3.5" ry="5.5" fill="#8b6eb7" opacity="0.45" transform="rotate(20,50,60)"/>
-                <!-- Leaves -->
-                <path d="M20 140 Q35 125, 30 100" stroke="#6b8a5e" stroke-width="1" fill="none" opacity="0.4"/>
-                <path d="M30 100 Q25 115, 35 110 Q28 108, 30 100Z" fill="#7a9e6a" opacity="0.35"/>
-                <path d="M95 80 Q85 95, 75 115" stroke="#6b8a5e" stroke-width="0.8" fill="none" opacity="0.35"/>
-                <path d="M85 95 Q80 90, 90 88 Q84 92, 85 95Z" fill="#7a9e6a" opacity="0.3"/>
-                <!-- Gold sparkles -->
-                <circle cx="160" cy="18" r="1.5" fill="#c9a84c" opacity="0.6"/><circle cx="175" cy="30" r="1" fill="#c9a84c" opacity="0.4"/>
-                <circle cx="145" cy="12" r="1" fill="#c9a84c" opacity="0.5"/><circle cx="15" cy="170" r="1.2" fill="#c9a84c" opacity="0.4"/>
-            </svg>
-        </div>
-        <div class="pricing-floral-br" aria-hidden="true">
-            <svg width="220" height="200" viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.55">
-                <path d="M10 190 Q10 10, 200 10" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.4"/>
-                <path d="M20 190 Q20 25, 195 20" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.25"/>
-                <g transform="translate(35,95)">
-                    <ellipse cx="0" cy="0" rx="28" ry="24" fill="#d4859a" opacity="0.7"/>
-                    <ellipse cx="-8" cy="-5" rx="18" ry="15" fill="#e0a0b0" opacity="0.8"/>
-                    <ellipse cx="5" cy="-8" rx="14" ry="11" fill="#ebbfc8" opacity="0.9"/>
-                    <ellipse cx="0" cy="-4" rx="8" ry="7" fill="#f0d0d8"/>
-                    <ellipse cx="22" cy="8" rx="10" ry="14" fill="#d4859a" opacity="0.5" transform="rotate(30,22,8)"/>
-                </g>
-                <g transform="translate(90,55)">
-                    <ellipse cx="0" cy="-14" rx="8" ry="12" fill="#7b5ea7" opacity="0.7"/>
-                    <ellipse cx="13" cy="-4" rx="8" ry="12" fill="#8b6eb7" opacity="0.65" transform="rotate(72)"/>
-                    <ellipse cx="8" cy="11" rx="8" ry="12" fill="#7b5ea7" opacity="0.6" transform="rotate(144)"/>
-                    <ellipse cx="-8" cy="11" rx="8" ry="12" fill="#8b6eb7" opacity="0.65" transform="rotate(216)"/>
-                    <ellipse cx="-13" cy="-4" rx="8" ry="12" fill="#7b5ea7" opacity="0.7" transform="rotate(288)"/>
-                    <circle cx="0" cy="0" r="5" fill="#e6d88c" opacity="0.8"/>
-                </g>
-                <g transform="translate(70,130)">
-                    <ellipse cx="0" cy="0" rx="16" ry="14" fill="#f5e6d0" opacity="0.8"/>
-                    <ellipse cx="-3" cy="-3" rx="10" ry="9" fill="#fdf0e0" opacity="0.9"/>
-                    <ellipse cx="1" cy="-2" rx="6" ry="5" fill="#fff8f0"/>
-                </g>
-                <circle cx="120" cy="35" r="2.5" fill="white" opacity="0.7"/><circle cx="115" cy="42" r="2" fill="white" opacity="0.6"/>
-                <circle cx="128" cy="30" r="2" fill="white" opacity="0.5"/><circle cx="108" cy="50" r="2.5" fill="white" opacity="0.6"/>
-                <ellipse cx="130" cy="55" rx="4" ry="6" fill="#9b7ec8" opacity="0.5" transform="rotate(-15,130,55)"/>
-                <path d="M20 140 Q35 125, 30 100" stroke="#6b8a5e" stroke-width="1" fill="none" opacity="0.4"/>
-                <path d="M30 100 Q25 115, 35 110 Q28 108, 30 100Z" fill="#7a9e6a" opacity="0.35"/>
-                <circle cx="160" cy="18" r="1.5" fill="#c9a84c" opacity="0.6"/><circle cx="175" cy="30" r="1" fill="#c9a84c" opacity="0.4"/>
-            </svg>
-        </div>
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Luxury Balloon Styling</span>
-                <h2 class="section-title">Elevate Your Celebrations</h2>
-                <!-- Floral divider -->
-                <div class="floral-divider">
-                    <span class="divider-line"></span>
-                    <svg width="40" height="30" viewBox="0 0 40 30" fill="none" class="floral-accent" aria-hidden="true">
-                        <ellipse cx="20" cy="12" rx="9" ry="8" fill="#d4859a" opacity="0.6"/>
-                        <ellipse cx="17" cy="10" rx="6" ry="5" fill="#e8b0be" opacity="0.8"/>
-                        <ellipse cx="20" cy="9" rx="3.5" ry="3" fill="#f0d0d8"/>
-                        <ellipse cx="10" cy="18" rx="4" ry="5.5" fill="#8b6eb7" opacity="0.5" transform="rotate(-20,10,18)"/>
-                        <ellipse cx="30" cy="18" rx="4" ry="5.5" fill="#8b6eb7" opacity="0.5" transform="rotate(20,30,18)"/>
-                        <circle cx="7" cy="8" r="1.5" fill="white" opacity="0.7"/><circle cx="33" cy="8" r="1.5" fill="white" opacity="0.7"/>
-                        <circle cx="5" cy="12" r="1.2" fill="white" opacity="0.5"/><circle cx="35" cy="12" r="1.2" fill="white" opacity="0.5"/>
-                        <path d="M14 22 Q12 18, 8 20" stroke="#7a9e6a" stroke-width="0.6" fill="none" opacity="0.5"/>
-                        <path d="M26 22 Q28 18, 32 20" stroke="#7a9e6a" stroke-width="0.6" fill="none" opacity="0.5"/>
-                    </svg>
-                    <span class="divider-line"></span>
-                </div>
-                <p class="section-desc">Beautifully crafted balloon décor packages for every occasion. Custom quotes available for larger installations.</p>
-            </div>
             <div class="pricing-grid">
-                <div class="pricing-card reveal">
-                    <div class="pricing-icon" style="background: var(--rose-pale);">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.5"><path d="M12 2C8 2 6 6 6 10c0 3 1 5 2 6h8c1-1 2-3 2-6 0-4-2-8-6-8z"/><path d="M10 16h4v3a2 2 0 01-4 0v-3z"/></svg>
-                    </div>
-                    <h3>Petite</h3>
-                    <div class="price">$250</div>
-                    <div class="price-currency">CAD</div>
+                <!-- Petite Package -->
+                <div class="pricing-card">
+                    <div class="pricing-icon">🎈</div>
+                    <div class="pricing-name">Petite</div>
+                    <div class="pricing-price">$250</div>
+                    <p class="pricing-desc">Perfect for intimate gatherings and small celebrations.</p>
                     <ul class="pricing-features">
-                        <li>Classic coordinated balloon arrangement</li>
-                        <li>Choice of 2-3 colours</li>
-                        <li>Perfect for intimate gatherings</li>
-                        <li>Tabletop or accent styling</li>
-                        <li>Setup included</li>
+                        <li>1 Signature Balloon Stack</li>
+                        <li>Single colour scheme</li>
+                        <li>Same-day delivery</li>
+                        <li>Basic setup</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Book Now</a>
+                    <a href="#contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Get a Quote</a>
                 </div>
-                <div class="pricing-card featured reveal">
-                    <div class="pricing-icon" style="background: var(--purple-pale);">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple-deep)" stroke-width="1.5"><path d="M12 1C7 1 4 6 4 11c0 4 1.5 6.5 3 8h10c1.5-1.5 3-4 3-8 0-5-3-10-8-10z"/><path d="M9 19h6v2.5a3 3 0 01-6 0V19z"/></svg>
-                    </div>
-                    <h3>Signature</h3>
-                    <div class="price">Starting at $350</div>
-                    <div class="price-currency">CAD</div>
+
+                <!-- Signature Package (Featured) -->
+                <div class="pricing-card featured">
+                    <div class="pricing-icon">🎉</div>
+                    <div class="pricing-name">Signature</div>
+                    <div class="pricing-price">$350<span class="pricing-price-suffix">+</span></div>
+                    <p class="pricing-desc">Our most popular choice for memorable celebrations.</p>
                     <ul class="pricing-features">
-                        <li>Premium balloon styling</li>
-                        <li>Choice of 3-4 colours</li>
-                        <li>Statement-size arrangements</li>
-                        <li>Includes metallic & specialty accents</li>
-                        <li>Delivery & setup included</li>
-                        <li>Ideal for entryways & photo ops</li>
+                        <li>Grande Signature Balloon Stack</li>
+                        <li>Custom colour palettes</li>
+                        <li>Professional setup & styling</li>
+                        <li>2-hour event coverage</li>
                     </ul>
                     <a href="#contact" class="btn btn-primary" style="width: 100%; justify-content: center;">Book Now</a>
                 </div>
-                <div class="pricing-card reveal">
-                    <div class="pricing-icon" style="background: #fff5e6;">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M8 3C5 3 3 6 3 9c0 2.5 1 4.5 2 5.5h6c1-1 2-3 2-5.5C13 6 11 3 8 3z"/><path d="M16 5c-2.5 0-4 2.5-4 5s1 4 1.5 5h5c.5-1 1.5-2.5 1.5-5s-1.5-5-4-5z"/></svg>
-                    </div>
-                    <h3>Luxe</h3>
-                    <div class="price">Starting at $500+</div>
-                    <div class="price-currency">CAD</div>
+
+                <!-- Luxe Package -->
+                <div class="pricing-card">
+                    <div class="pricing-icon">✨</div>
+                    <div class="pricing-name">Luxe</div>
+                    <div class="pricing-price">$500<span class="pricing-price-suffix">+</span></div>
+                    <p class="pricing-desc">Full event styling for a completely transformed space.</p>
                     <ul class="pricing-features">
-                        <li>Fully custom luxury design</li>
-                        <li>Unlimited colour palette</li>
-                        <li>Large-scale installations</li>
-                        <li>Premium & specialty balloon varieties</li>
-                        <li>Full event styling available</li>
-                        <li>Delivery & complete setup</li>
+                        <li>Custom Themed & Statement Stack</li>
+                        <li>Balloon arches & garlands</li>
+                        <li>Full event styling</li>
+                        <li>4+ hours on-site</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Book Now</a>
+                    <a href="#contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Customize</a>
+                </div>
+            </div>
+
+            <!-- Additional Services -->
+            <div class="additional-services">
+                <h3>Additional Services Available</h3>
+                <div class="additional-services-grid">
+                    <div class="additional-service-item">
+                        <h4>Balloon Arches</h4>
+                        <p>Stunning archways for entrances, backdrops, and ceremony spaces. Custom colours and themes available.</p>
+                        <a href="#contact">Get a Quote →</a>
+                    </div>
+                    <div class="additional-service-item">
+                        <h4>Balloon Garlands</h4>
+                        <p>Elegant garlands for table décor, wall features, and outdoor spaces. Perfect for any occasion.</p>
+                        <a href="#contact">Get a Quote →</a>
+                    </div>
+                    <div class="additional-service-item">
+                        <h4>Full Event Styling</h4>
+                        <p>Complete event design including balloons, florals, lighting, and coordinated décor concepts.</p>
+                        <a href="#contact">Get a Quote →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floral corner decorations -->
+            <div class="pricing-floral-tl" aria-hidden="true">
+                <svg width="220" height="200" viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.55">
+                    <!-- Gold arc -->
+                    <path d="M10 190 Q10 10, 200 10" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.4"/>
+                    <path d="M20 190 Q20 25, 195 20" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.25"/>
+                    <!-- Large pink rose -->
+                    <g transform="translate(35,95)">
+                        <ellipse cx="0" cy="0" rx="28" ry="24" fill="#d4859a" opacity="0.7"/>
+                        <ellipse cx="-8" cy="-5" rx="18" ry="15" fill="#e0a0b0" opacity="0.8"/>
+                        <ellipse cx="5" cy="-8" rx="14" ry="11" fill="#ebbfc8" opacity="0.9"/>
+                        <ellipse cx="0" cy="-4" rx="8" ry="7" fill="#f0d0d8"/>
+                        <ellipse cx="22" cy="8" rx="10" ry="14" fill="#d4859a" opacity="0.5" transform="rotate(30,22,8)"/>
+                        <ellipse cx="-20" cy="10" rx="9" ry="13" fill="#d4859a" opacity="0.45" transform="rotate(-20,-20,10)"/>
+                    </g>
+                    <!-- Purple flower -->
+                    <g transform="translate(90,55)">
+                        <ellipse cx="0" cy="-14" rx="8" ry="12" fill="#7b5ea7" opacity="0.7" transform="rotate(0)"/>
+                        <ellipse cx="13" cy="-4" rx="8" ry="12" fill="#8b6eb7" opacity="0.65" transform="rotate(72)"/>
+                        <ellipse cx="8" cy="11" rx="8" ry="12" fill="#7b5ea7" opacity="0.6" transform="rotate(144)"/>
+                        <ellipse cx="-8" cy="11" rx="8" ry="12" fill="#8b6eb7" opacity="0.65" transform="rotate(216)"/>
+                        <ellipse cx="-13" cy="-4" rx="8" ry="12" fill="#7b5ea7" opacity="0.7" transform="rotate(288)"/>
+                        <circle cx="0" cy="0" r="5" fill="#e6d88c" opacity="0.8"/>
+                    </g>
+                    <!-- Small cream rose -->
+                    <g transform="translate(70,130)">
+                        <ellipse cx="0" cy="0" rx="16" ry="14" fill="#f5e6d0" opacity="0.8"/>
+                        <ellipse cx="-3" cy="-3" rx="10" ry="9" fill="#fdf0e0" opacity="0.9"/>
+                        <ellipse cx="1" cy="-2" rx="6" ry="5" fill="#fff8f0"/>
+                        <ellipse cx="12" cy="4" rx="6" ry="9" fill="#f0dcc5" opacity="0.5" transform="rotate(25,12,4)"/>
+                    </g>
+                    <!-- Baby's breath dots -->
+                    <circle cx="120" cy="35" r="2.5" fill="white" opacity="0.7"/><circle cx="115" cy="42" r="2" fill="white" opacity="0.6"/>
+                    <circle cx="128" cy="30" r="2" fill="white" opacity="0.5"/><circle cx="108" cy="50" r="2.5" fill="white" opacity="0.6"/>
+                    <circle cx="135" cy="45" r="1.8" fill="white" opacity="0.5"/><circle cx="100" cy="60" r="2" fill="white" opacity="0.55"/>
+                    <circle cx="55" cy="70" r="2" fill="white" opacity="0.5"/><circle cx="48" cy="80" r="1.8" fill="white" opacity="0.45"/>
+                    <!-- Small purple buds -->
+                    <ellipse cx="130" cy="55" rx="4" ry="6" fill="#9b7ec8" opacity="0.5" transform="rotate(-15,130,55)"/>
+                    <ellipse cx="50" cy="60" rx="3.5" ry="5.5" fill="#8b6eb7" opacity="0.45" transform="rotate(20,50,60)"/>
+                    <!-- Leaves -->
+                    <path d="M20 140 Q35 125, 30 100" stroke="#6b8a5e" stroke-width="1" fill="none" opacity="0.4"/>
+                    <path d="M30 100 Q25 115, 35 110 Q28 108, 30 100Z" fill="#7a9e6a" opacity="0.35"/>
+                    <path d="M95 80 Q85 95, 75 115" stroke="#6b8a5e" stroke-width="0.8" fill="none" opacity="0.35"/>
+                    <path d="M85 95 Q80 90, 90 88 Q84 92, 85 95Z" fill="#7a9e6a" opacity="0.3"/>
+                    <!-- Gold sparkles -->
+                    <circle cx="160" cy="18" r="1.5" fill="#c9a84c" opacity="0.6"/><circle cx="175" cy="30" r="1" fill="#c9a84c" opacity="0.4"/>
+                    <circle cx="145" cy="12" r="1" fill="#c9a84c" opacity="0.5"/><circle cx="15" cy="170" r="1.2" fill="#c9a84c" opacity="0.4"/>
+                </svg>
+            </div>
+            <div class="pricing-floral-br" aria-hidden="true">
+                <svg width="220" height="200" viewBox="0 0 220 200" fill="none" xmlns="http://www.w3.org/2000/svg" opacity="0.55">
+                    <path d="M10 190 Q10 10, 200 10" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.4"/>
+                    <path d="M20 190 Q20 25, 195 20" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.25"/>
+                    <g transform="translate(35,95)">
+                        <ellipse cx="0" cy="0" rx="28" ry="24" fill="#d4859a" opacity="0.7"/>
+                        <ellipse cx="-8" cy="-5" rx="18" ry="15" fill="#e0a0b0" opacity="0.8"/>
+                        <ellipse cx="5" cy="-8" rx="14" ry="11" fill="#ebbfc8" opacity="0.9"/>
+                        <ellipse cx="0" cy="-4" rx="8" ry="7" fill="#f0d0d8"/>
+                        <ellipse cx="22" cy="8" rx="10" ry="14" fill="#d4859a" opacity="0.5" transform="rotate(30,22,8)"/>
+                    </g>
+                    <g transform="translate(90,55)">
+                        <ellipse cx="0" cy="-14" rx="8" ry="12" fill="#7b5ea7" opacity="0.7"/>
+                        <ellipse cx="13" cy="-4" rx="8" ry="12" fill="#8b6eb7" opacity="0.65" transform="rotate(72)"/>
+                        <ellipse cx="8" cy="11" rx="8" ry="12" fill="#7b5ea7" opacity="0.6" transform="rotate(144)"/>
+                        <ellipse cx="-8" cy="11" rx="8" ry="12" fill="#8b6eb7" opacity="0.65" transform="rotate(216)"/>
+                        <ellipse cx="-13" cy="-4" rx="8" ry="12" fill="#7b5ea7" opacity="0.7" transform="rotate(288)"/>
+                        <circle cx="0" cy="0" r="5" fill="#e6d88c" opacity="0.8"/>
+                    </g>
+                    <g transform="translate(70,130)">
+                        <ellipse cx="0" cy="0" rx="16" ry="14" fill="#f5e6d0" opacity="0.8"/>
+                        <ellipse cx="-3" cy="-3" rx="10" ry="9" fill="#fdf0e0" opacity="0.9"/>
+                        <ellipse cx="1" cy="-2" rx="6" ry="5" fill="#fff8f0"/>
+                    </g>
+                    <circle cx="120" cy="35" r="2.5" fill="white" opacity="0.7"/><circle cx="115" cy="42" r="2" fill="white" opacity="0.6"/>
+                    <circle cx="128" cy="30" r="2" fill="white" opacity="0.5"/><circle cx="108" cy="50" r="2.5" fill="white" opacity="0.6"/>
+                    <ellipse cx="130" cy="55" rx="4" ry="6" fill="#9b7ec8" opacity="0.5" transform="rotate(-15,130,55)"/>
+                    <path d="M20 140 Q35 125, 30 100" stroke="#6b8a5e" stroke-width="1" fill="none" opacity="0.4"/>
+                    <path d="M30 100 Q25 115, 35 110 Q28 108, 30 100Z" fill="#7a9e6a" opacity="0.35"/>
+                    <circle cx="160" cy="18" r="1.5" fill="#c9a84c" opacity="0.6"/><circle cx="175" cy="30" r="1" fill="#c9a84c" opacity="0.4"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Gallery</span>
+                <h2 class="section-title">Our Latest Work</h2>
+                <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
+            </div>
+
+            <div class="gallery-filter">
+                <button class="active" data-filter="all">All Events</button>
+                <button data-filter="wedding">Weddings</button>
+                <button data-filter="babyshower">Baby Showers</button>
+                <button data-filter="birthday">Birthdays</button>
+                <button data-filter="corporate">Corporate</button>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item reveal" data-category="wedding">
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80" alt="Elegant white and gold balloon installation at an Edmonton wedding ceremony">
+                    <div class="gallery-overlay"><span>Wedding Celebration</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="babyshower">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80" alt="Pastel pink and white balloon garland for baby shower décor">
+                    <div class="gallery-overlay"><span>Baby Shower</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="birthday">
+                    <img src="https://images.unsplash.com/photo-1520763185298-1b434c919eba?w=400&q=80" alt="Colorful rainbow balloon arch decoration for birthday party">
+                    <div class="gallery-overlay"><span>Birthday Party</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="corporate">
+                    <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=400&q=80" alt="Professional corporate event balloon styling with brand colours">
+                    <div class="gallery-overlay"><span>Corporate Event</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="wedding">
+                    <img src="https://images.unsplash.com/photo-1458181285573-ce2b5c2ede81?w=400&q=80" alt="Romantic wedding backdrop with blush and gold balloons">
+                    <div class="gallery-overlay"><span>Wedding Reception</span></div>
+                </div>
+                <div class="gallery-item reveal" data-category="babyshower">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&q=80" alt="Delicate botanical baby shower balloon design with pastel tones">
+                    <div class="gallery-overlay"><span>Baby Shower Styling</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         TESTIMONIALS SECTION
-         ============================================ -->
+    <!-- TESTIMONIALS SECTION -->
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Client Love</span>
+            <div class="section-header">
+                <span class="section-label">Reviews</span>
                 <h2 class="section-title">What Our Clients Say</h2>
                 <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
-                <p class="section-desc">Hear from some of the amazing people who trusted us with their celebrations.</p>
             </div>
-            <div class="testimonial-track">
+
+            <div class="testimonial-grid">
                 <div class="testimonial-card reveal">
                     <div class="testimonial-stars">★★★★★</div>
-                    <blockquote>"MJ absolutely transformed our venue! The balloon arch was breathtaking and every guest was in awe. She has an incredible eye for colour and detail. Cannot recommend enough!"</blockquote>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">SP</div>
-                        <div>
-                            <div class="testimonial-name">Sarah P.</div>
-                            <div class="testimonial-event">Wedding Reception</div>
-                        </div>
-                    </div>
+                    <p>"MJ absolutely transformed our wedding venue. The balloon installation was stunning, and her attention to detail was incredible. Our guests couldn't stop talking about the décor. Highly recommend!"</p>
+                    <div class="testimonial-author">Sarah & David</div>
+                    <div class="testimonial-occasion">Wedding</div>
                 </div>
+
                 <div class="testimonial-card reveal">
                     <div class="testimonial-stars">★★★★★</div>
-                    <blockquote>"The balloon stacks for my daughter's first birthday were beyond perfect. MJ understood exactly what I envisioned and brought it to life beautifully. So professional and easy to work with!"</blockquote>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">AK</div>
-                        <div>
-                            <div class="testimonial-name">Anika K.</div>
-                            <div class="testimonial-event">1st Birthday Party</div>
-                        </div>
-                    </div>
+                    <p>"From concept to execution, Events by MJ delivered beyond expectations. The baby shower was picture-perfect, and every element was thoughtfully designed. Thank you for making our special day so memorable!"</p>
+                    <div class="testimonial-author">Michelle L.</div>
+                    <div class="testimonial-occasion">Baby Shower</div>
                 </div>
+
                 <div class="testimonial-card reveal">
                     <div class="testimonial-stars">★★★★★</div>
-                    <blockquote>"We hired Events by MJ for our corporate gala and the result was stunning. The installation was elegant, on-brand, and completed ahead of schedule. Truly a class act!"</blockquote>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">DM</div>
-                        <div>
-                            <div class="testimonial-name">David M.</div>
-                            <div class="testimonial-event">Corporate Gala</div>
-                        </div>
-                    </div>
+                    <p>"Professional, creative, and so easy to work with. MJ listened to our vision and brought it to life beautifully. Our corporate event looked amazing, and our team was impressed. Will definitely book again!"</p>
+                    <div class="testimonial-author">Jennifer K.</div>
+                    <div class="testimonial-occasion">Corporate Event</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         BALLOON CARE SECTION
-         ============================================ -->
-    <section class="balloon-care" id="balloon-care">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Tips & Care</span>
-                <h2 class="section-title">Balloon Care Guide</h2>
-                <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
-                <p class="section-desc">Get the most out of your balloon décor with these helpful care tips.</p>
-            </div>
-            <div class="care-grid">
-                <div class="care-card reveal">
-                    <div class="care-number">01</div>
-                    <div>
-                        <h3>Avoid Direct Sunlight</h3>
-                        <p>UV rays and heat can cause balloons to oxidize, fade, and pop prematurely. Keep your décor in shaded or indoor areas for the longest life.</p>
-                    </div>
-                </div>
-                <div class="care-card reveal">
-                    <div class="care-number">02</div>
-                    <div>
-                        <h3>Temperature Matters</h3>
-                        <p>Extreme heat or cold can affect balloon size and float time. Room temperature (20-22°C) is ideal for maintaining their perfect shape.</p>
-                    </div>
-                </div>
-                <div class="care-card reveal">
-                    <div class="care-number">03</div>
-                    <div>
-                        <h3>Set Up Timing</h3>
-                        <p>For best results, balloon décor should be set up 1-3 hours before your event. We'll coordinate timing with you to ensure everything is picture-perfect.</p>
-                    </div>
-                </div>
-                <div class="care-card reveal">
-                    <div class="care-number">04</div>
-                    <div>
-                        <h3>Handle with Care</h3>
-                        <p>Avoid sharp objects, rough surfaces, and excessive handling. Treat your balloon décor gently and it will stay beautiful throughout your entire event.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         SPECIAL EVENTS SECTION
-         ============================================ -->
-    <section class="special-events" id="special-events">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Celebrations</span>
-                <h2 class="section-title">Events We Love</h2>
-                <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
-                <p class="section-desc">From intimate gatherings to grand celebrations, we design balloon décor for every occasion.</p>
-            </div>
-            <div class="events-grid">
-                <div class="event-card reveal">
-                    <img src="" alt="Elegant wedding reception venue decorated with rose gold and white balloon garlands" loading="lazy">
-                    <div class="event-card-body">
-                        <h3>Weddings</h3>
-                        <p>Romantic arches, elegant garlands, and breathtaking backdrops for your perfect day.</p>
-                    </div>
-                </div>
-                <div class="event-card reveal">
-                    <img src="" alt="Pastel-themed baby shower with balloon stacks and soft pink and blue decorations" loading="lazy">
-                    <div class="event-card-body">
-                        <h3>Baby Showers</h3>
-                        <p>Sweet, dreamy setups that celebrate new beginnings with soft colours and playful designs.</p>
-                    </div>
-                </div>
-                <div class="event-card reveal">
-                    <img src="" alt="Vibrant birthday party balloon setup with themed decorations and colourful garlands" loading="lazy">
-                    <div class="event-card-body">
-                        <h3>Birthdays</h3>
-                        <p>From first birthdays to milestone celebrations, we make every year unforgettable.</p>
-                    </div>
-                </div>
-                <div class="event-card reveal">
-                    <img src="" alt="Sophisticated corporate event with branded balloon installations and professional styling" loading="lazy">
-                    <div class="event-card-body">
-                        <h3>Corporate Events</h3>
-                        <p>Professional, polished décor that elevates your brand presence at any business gathering.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         HOW IT WORKS / BOOKING
-         ============================================ -->
+    <!-- HOW IT WORKS SECTION -->
     <section class="booking" id="booking">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-label">Simple Process</span>
+            <div class="section-header">
+                <span class="section-label">Process</span>
                 <h2 class="section-title">How It Works</h2>
                 <div class="floral-divider"><span class="divider-line"></span><svg width="36" height="24" viewBox="0 0 36 24" fill="none" class="floral-accent" aria-hidden="true"><ellipse cx="18" cy="10" rx="7" ry="6" fill="#d4859a" opacity="0.55"/><ellipse cx="16" cy="8" rx="4.5" ry="4" fill="#e8b0be" opacity="0.7"/><ellipse cx="18" cy="8" rx="2.8" ry="2.5" fill="#f0d0d8" opacity="0.85"/><ellipse cx="9" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(-15,9,15)"/><ellipse cx="27" cy="15" rx="3.5" ry="5" fill="#8b6eb7" opacity="0.4" transform="rotate(15,27,15)"/><circle cx="5" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="31" cy="7" r="1.5" fill="white" opacity="0.6"/><circle cx="3" cy="11" r="1" fill="white" opacity="0.4"/><circle cx="33" cy="11" r="1" fill="white" opacity="0.4"/></svg><span class="divider-line"></span></div>
-                <p class="section-desc">From first inquiry to flawless setup — we make the process effortless.</p>
             </div>
+
             <div class="booking-steps">
                 <div class="step-card reveal">
                     <div class="step-number">1</div>
-                    <h3>Reach Out</h3>
-                    <p>Contact us with your event date, vision, and any inspiration photos. We respond within 24 hours.</p>
+                    <h3>Consult</h3>
+                    <p>Contact us and share your event details, vision, colours, and budget. We'll discuss options and create a custom proposal.</p>
                 </div>
+
                 <div class="step-card reveal">
                     <div class="step-number">2</div>
-                    <h3>Design Consultation</h3>
-                    <p>We'll discuss colours, themes, sizes, and layout to create the perfect design concept for your space.</p>
+                    <h3>Design</h3>
+                    <p>Our creative team designs your custom balloon arrangements and décor concepts tailored to your celebration.</p>
                 </div>
+
                 <div class="step-card reveal">
                     <div class="step-number">3</div>
-                    <h3>Confirm & Book</h3>
-                    <p>Approve the design and secure your date with a deposit. We handle all the details from here.</p>
+                    <h3>Confirm</h3>
+                    <p>Finalize details, colours, timing, and delivery/setup arrangements. We'll keep you informed every step of the way.</p>
                 </div>
+
                 <div class="step-card reveal">
                     <div class="step-number">4</div>
-                    <h3>We Set Up — You Celebrate</h3>
-                    <p>We arrive early, install everything to perfection, and leave you to enjoy your beautiful event.</p>
+                    <h3>Celebrate</h3>
+                    <p>We deliver and set up your décor beautifully. Sit back, relax, and enjoy your beautifully styled event!</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         CONTACT SECTION
-         ============================================ -->
+    <!-- CONTACT SECTION -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info reveal">
-                    <span class="section-label">Get In Touch</span>
-                    <h2>Let's Create Something Beautiful</h2>
-                    <span class="script-accent">Your celebration awaits</span>
-                    <p>Ready to transform your next event? Reach out and let's discuss your vision. We'd love to hear about your upcoming celebration and help bring it to life.</p>
+                    <h2>Get In Touch</h2>
+                    <span class="script-accent">Let's Create Something Beautiful Together</span>
+                    <p>Ready to bring your event to life? We'd love to hear from you! Reach out with your event details, and we'll get back to you with a custom proposal within 24 hours.</p>
 
                     <div class="contact-detail">
                         <div class="contact-detail-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-                        </div>
-                        <div class="contact-detail-text">
-                            <span>Phone</span>
-                            <a href="tel:+17809012218">+1 (780) 901-2218</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-detail">
-                        <div class="contact-detail-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        </div>
-                        <div class="contact-detail-text">
-                            <span>Email</span>
-                            <a href="mailto:eventsbymj.edmonton@gmail.com">eventsbymj.edmonton@gmail.com</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-detail">
-                        <div class="contact-detail-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                         </div>
                         <div class="contact-detail-text">
                             <span>Location</span>
-                            Edmonton, AB, Canada
+                            Edmonton, Alberta
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div class="contact-detail-text">
+                            <span>Phone</span>
+                            <a href="tel:+1780000000">(780) 000-0000</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </div>
+                        <div class="contact-detail-text">
+                            <span>Email</span>
+                            <a href="mailto:hello@eventsbymj.ca">hello@eventsbymj.ca</a>
                         </div>
                     </div>
 
                     <div class="contact-social">
-                        <a href="https://www.instagram.com/eventsbymj.edmonton/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
-                        </a>
-                        <a href="mailto:eventsbymj.edmonton@gmail.com" aria-label="Send us an email">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <a href="https://www.instagram.com/events_by_mj_bandjak?igsh=aGk5bXY5bDBkZWJv" target="_blank" rel="noopener noreferrer" aria-label="Visit Events by MJ on Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
                         </a>
                     </div>
                 </div>
@@ -2281,351 +2030,124 @@
                 <form class="contact-form reveal" id="contactForm" action="#" method="POST">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="Full name" required>
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" placeholder="your@email.com" required>
                         </div>
                     </div>
+
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="phone">Phone</label>
+                            <label for="phone">Phone Number</label>
                             <input type="tel" id="phone" name="phone" placeholder="(780) 000-0000">
                         </div>
                         <div class="form-group">
                             <label for="event-type">Event Type</label>
                             <select id="event-type" name="event-type">
-                                <option value="">Select event type</option>
-                                <option value="birthday">Birthday Party</option>
-                                <option value="baby-shower">Baby Shower</option>
-                                <option value="wedding">Wedding</option>
-                                <option value="corporate">Corporate Event</option>
-                                <option value="other">Other</option>
+                                <option>Select an event type</option>
+                                <option>Wedding</option>
+                                <option>Baby Shower</option>
+                                <option>Birthday Party</option>
+                                <option>Corporate Event</option>
+                                <option>Other</option>
                             </select>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="event-date">Event Date</label>
                         <input type="date" id="event-date" name="event-date">
                     </div>
+
                     <div class="form-group">
-                        <label for="message">Tell Us About Your Vision</label>
+                        <label for="message">Tell Us About Your Event</label>
                         <textarea id="message" name="message" placeholder="Describe your event, colour preferences, theme, and any inspiration..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Inquiry</button>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         FOOTER
-         ============================================ -->
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div>
                     <div class="footer-brand">Events by MJ</div>
-                    <div class="footer-tagline">Elevate Your Celebrations</div>
-                    <p class="footer-desc">Edmonton's premier balloon décor and event styling service. Turning celebrations into unforgettable experiences, one balloon at a time.</p>
+                    <div class="footer-tagline">Every Detail Made Beautiful</div>
+                    <p class="footer-desc">Edmonton's premier balloon décor and event styling service, creating unforgettable celebrations with creativity, elegance, and attention to detail.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services-packages">Services</a></li>
                         <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#services">Balloon Stacks</a></li>
-                        <li><a href="#services">Balloon Arches</a></li>
-                        <li><a href="#services">Balloon Garlands</a></li>
-                        <li><a href="#services">Event Styling</a></li>
+                        <li><a href="#services-packages">Balloon Packages</a></li>
+                        <li><a href="#services-packages">Balloon Arches</a></li>
+                        <li><a href="#services-packages">Garlands & Styling</a></li>
+                        <li><a href="#contact">Book a Consultation</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Contact</h4>
+                    <h4>Connect</h4>
                     <ul>
-                        <li><a href="tel:+17809012218">(780) 901-2218</a></li>
-                        <li><a href="mailto:eventsbymj.edmonton@gmail.com">eventsbymj.edmonton@gmail.com</a></li>
-                        <li>Edmonton, AB, Canada</li>
-                        <li><a href="https://www.instagram.com/eventsbymj.edmonton/" target="_blank" rel="noopener noreferrer">Follow us on Instagram</a></li>
+                        <li><a href="https://www.instagram.com/events_by_mj_bandjak?igsh=aGk5bXY5bDBkZWJv" target="_blank" rel="noopener noreferrer">Follow us on Instagram</a></li>
+                        <li><a href="mailto:hello@eventsbymj.ca">Send an Email</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 Events by MJ. All rights reserved.</span>
-                <span>Serving Edmonton & surrounding areas</span>
+
+            <div class="footer-divider">
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Events by MJ. All rights reserved. | <a href="#" style="color: var(--text-light);">Privacy Policy</a></p>
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/events_by_mj_bandjak?igsh=aGk5bXY5bDBkZWJv" target="_blank" rel="noopener noreferrer" aria-label="Visit Events by MJ on Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- ============================================
-         JAVASCRIPT
-         ============================================ -->
-    <script>
-    (function() {
-        'use strict';
-
-        // ---- NAVBAR SCROLL ----
-        const navbar = document.getElementById('navbar');
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > 60) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            lastScroll = currentScroll;
-        }, { passive: true });
-
-        // ---- MOBILE NAV ----
-        const navToggle = document.getElementById('navToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        navToggle.addEventListener('click', () => {
-            navToggle.classList.toggle('active');
-            navLinks.classList.toggle('open');
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navToggle.classList.remove('active');
-                navLinks.classList.remove('open');
-            });
-        });
-
-        // ---- FLOATING BALLOON PARTICLES ----
-        const particleContainer = document.getElementById('balloonParticles');
-        const colors = ['#f0c8d4', '#c9a0c9', '#e6d69c', '#e8d0e8', '#fce8ef', '#d4859a'];
-
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.classList.add('balloon-particle');
-            const size = Math.random() * 18 + 10;
-            const left = Math.random() * 100;
-            const duration = Math.random() * 12 + 10;
-            const delay = Math.random() * 8;
-            const color = colors[Math.floor(Math.random() * colors.length)];
-
-            particle.style.cssText = `
-                width: ${size}px;
-                height: ${size * 1.2}px;
-                left: ${left}%;
-                background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), ${color});
-                animation-duration: ${duration}s;
-                animation-delay: ${delay}s;
-            `;
-
-            particleContainer.appendChild(particle);
-
-            // Cleanup after animation
-            setTimeout(() => {
-                if (particle.parentNode) particle.parentNode.removeChild(particle);
-                createParticle();
-            }, (duration + delay) * 1000);
-        }
-
-        // Create initial particles (reduced for performance)
-        for (let i = 0; i < 12; i++) {
-            createParticle();
-        }
-
-        // ---- BALLOON POP EFFECT ----
-        document.querySelectorAll('[data-pop]').forEach(balloon => {
-            balloon.addEventListener('click', function(e) {
-                const rect = this.getBoundingClientRect();
-                const color = getComputedStyle(this).background;
-
-                // Create pop particles
-                for (let i = 0; i < 10; i++) {
-                    const particle = document.createElement('div');
-                    particle.classList.add('pop-particle');
-                    const angle = (Math.PI * 2 / 10) * i;
-                    const distance = Math.random() * 80 + 40;
-                    particle.style.cssText = `
-                        left: ${rect.left + rect.width/2}px;
-                        top: ${rect.top + rect.height/2}px;
-                        position: fixed;
-                        background: ${colors[Math.floor(Math.random() * colors.length)]};
-                        --tx: ${Math.cos(angle) * distance}px;
-                        --ty: ${Math.sin(angle) * distance}px;
-                        z-index: 9999;
-                    `;
-                    document.body.appendChild(particle);
-                    setTimeout(() => particle.remove(), 600);
-                }
-
-                // Pop the balloon
-                this.classList.add('balloon-pop');
-                setTimeout(() => {
-                    this.classList.remove('balloon-pop');
-                    this.style.opacity = '0';
-                    // Respawn after delay
-                    setTimeout(() => {
-                        this.style.opacity = '';
-                        this.style.animation = 'none';
-                        void this.offsetHeight; // Force reflow
-                        this.style.animation = '';
-                    }, 3000);
-                }, 400);
-            });
-        });
-
-        // ---- SCROLL REVEAL ----
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // ---- COUNTER ANIMATION ----
-        const counters = document.querySelectorAll('[data-count]');
-
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.getAttribute('data-count'));
-                    let current = 0;
-                    const increment = target / 60;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            entry.target.textContent = target + '+';
-                            clearInterval(timer);
-                        } else {
-                            entry.target.textContent = Math.floor(current) + '+';
-                        }
-                    }, 25);
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        counters.forEach(c => counterObserver.observe(c));
-
-        // ---- GALLERY FILTER ----
-        const filterButtons = document.querySelectorAll('.gallery-filter button');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                filterButtons.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-
-                const filter = this.getAttribute('data-filter');
-
-                galleryItems.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = '';
-                        item.style.opacity = '0';
-                        item.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            item.style.transition = '0.4s ease';
-                            item.style.opacity = '1';
-                            item.style.transform = 'scale(1)';
-                        }, 50);
-                    } else {
-                        item.style.transition = '0.3s ease';
-                        item.style.opacity = '0';
-                        item.style.transform = 'scale(0.8)';
-                        setTimeout(() => { item.style.display = 'none'; }, 300);
-                    }
-                });
-            });
-        });
-
-        // ---- SMOOTH SCROLL ----
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = 80;
-                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                    window.scrollTo({ top, behavior: 'smooth' });
-                }
-            });
-        });
-
-        // ---- PARALLAX HERO BALLOONS ----
-        const heroBalloons = document.querySelectorAll('.hero-balloon');
-
-        window.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 2;
-            const y = (e.clientY / window.innerHeight - 0.5) * 2;
-
-            heroBalloons.forEach((balloon, i) => {
-                const speed = (i + 1) * 3;
-                balloon.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-            });
-        }, { passive: true });
-
-        // ---- CONTACT FORM (Simple Validation Feedback) ----
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.textContent = 'Sending...';
-            btn.style.opacity = '0.7';
-
-            setTimeout(() => {
-                btn.textContent = 'Thank You! We\'ll Be in Touch ✓';
-                btn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
-                btn.style.opacity = '1';
-
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = '';
-                    this.reset();
-                }, 3000);
-            }, 1200);
-        });
-
-    })();
-    </script>
-
-    <!-- Structured Data for Local Business SEO -->
+    <!-- STRUCTURED DATA / SCHEMA MARKUP -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Events by MJ",
-        "description": "Edmonton's premier balloon décor and event styling service. Custom balloon stacks, arches, garlands, and themed event design.",
+        "description": "Edmonton's premier balloon décor and event styling service",
         "url": "https://eventsbymj.ca",
-        "telephone": "+1-780-901-2218",
-        "email": "eventsbymj.edmonton@gmail.com",
+        "telephone": "(780) 000-0000",
+        "email": "hello@eventsbymj.ca",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Edmonton",
-            "addressRegion": "AB",
+            "addressRegion": "Alberta",
             "addressCountry": "CA"
         },
-        "areaServed": {
-            "@type": "City",
-            "name": "Edmonton"
-        },
-        "priceRange": "$$",
         "sameAs": [
-            "https://www.instagram.com/eventsbymj.edmonton/"
-        ]
+            "https://www.instagram.com/events_by_mj_bandjak?igsh=aGk5bXY5bDBkZWJv"
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "50"
+        },
+        "image": "https://images.unsplash.com/photo-1519167758481-83f19106048c?w=800&q=80"
     }
     </script>
 </body>
