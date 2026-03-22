@@ -1470,7 +1470,23 @@
             .scroll-stop-brand .ss-cta { padding: 10px 28px; font-size: 0.75rem; }
         }
 
-    </style>
+    
+        /* Mobile hero floral fix */
+        @media (max-width: 768px) {
+            .hero-floral-left,
+            .hero-floral-right {
+                display: none;
+            }
+            .hero {
+                flex-direction: column;
+            }
+            .hero-content {
+                width: 100%;
+                padding: 0 20px;
+            }
+        }
+
+        </style>
     <script>
         // ============================================
         // NAVBAR SCROLL EFFECT & MOBILE TOGGLE
@@ -1789,7 +1805,7 @@
             <div class="pricing-grid">
                 <!-- Petite Package -->
                 <div class="pricing-card">
-                    <div class="pricing-icon">ð</div>
+                    <div class="pricing-icon">&#x1F388;</div>
                     <div class="pricing-name">Petite</div>
                     <div class="pricing-price">$250</div>
                     <p class="pricing-desc">Perfect for intimate gatherings and small celebrations.</p>
@@ -1804,7 +1820,7 @@
 
                 <!-- Signature Package (Featured) -->
                 <div class="pricing-card featured">
-                    <div class="pricing-icon">ð</div>
+                    <div class="pricing-icon">&#x1F389;</div>
                     <div class="pricing-name">Signature</div>
                     <div class="pricing-price">$350<span class="pricing-price-suffix">+</span></div>
                     <p class="pricing-desc">Our most popular choice for memorable celebrations.</p>
@@ -1819,7 +1835,7 @@
 
                 <!-- Luxe Package -->
                 <div class="pricing-card">
-                    <div class="pricing-icon">â¨</div>
+                    <div class="pricing-icon">&#x2728;</div>
                     <div class="pricing-name">Luxe</div>
                     <div class="pricing-price">$500<span class="pricing-price-suffix">+</span></div>
                     <p class="pricing-desc">Full event styling for a completely transformed space.</p>
