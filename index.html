@@ -951,6 +951,7 @@
         }
 
         .gallery-item {
+            display: none;
             position: relative;
             border-radius: 16px;
             overflow: hidden;
@@ -1765,6 +1766,7 @@
                 button.addEventListener('click', function() {
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
+                var gp = document.getElementById('gallery-prompt'); if(gp) gp.style.display='none';
 
                     const filter = this.getAttribute('data-filter');
                     galleryItems.forEach(item => {
@@ -2118,7 +2120,7 @@
             </div>
 
             <div class="gallery-filter">
-                <button class="active" data-filter="all">All Events</button>
+                <button data-filter="all">All Events</button>
                 <button data-filter="wedding">Weddings</button>
                 <button data-filter="babyshower">Baby Showers</button>
                 <button data-filter="birthday">Birthdays</button>
@@ -2127,7 +2129,8 @@
                 <button data-filter="themed">Themed</button>
             </div>
 
-            <div class="gallery-grid">
+                    <p id="gallery-prompt" style="text-align:center;color:var(--text-light);font-style:italic;padding:60px 20px;font-size:1.1rem;">Select a category above to browse our portfolio</p>
+<div class="gallery-grid">
                 <!-- Weddings -->
                 <div class="gallery-item reveal" data-category="wedding">
                     <img src="images/wedding-bloom-wall.jpeg" alt="Stunning bloom wall and balloon installation at Edmonton wedding" loading="lazy">
