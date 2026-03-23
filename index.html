@@ -673,36 +673,7 @@
             line-height: 1.8;
         }
 
-        .about-rating {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 32px;
-            padding-top: 32px;
-            border-top: 1px solid var(--cream-dark);
-        }
-
-        .rating-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
-            padding: 12px 20px;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
-        }
-
-        .rating-badge .stars {
-            font-size: 1.2rem;
-            color: var(--gold);
-        }
-
-        .rating-badge .rating-text {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
+        
         /* ============================================
            SERVICES & PACKAGES SECTION (UNIFIED)
            ============================================ */
@@ -1956,13 +1927,7 @@
                     <p>From elegant balloon stacks and whimsical arches to full-scale event styling, I bring creativity, precision, and heart to every project. Whether it's a birthday, baby shower, corporate event, or holiday celebration &mdash; I'm here to make your vision a reality.</p>
                     <p>Let's create something beautiful together.</p>
                     <p class="about-signature" style="font-family: var(--font-script); font-size: 2rem; color: var(--gold); margin-top: 8px;">Maja</p>
-                    <div class="about-rating">
-                        <div class="rating-badge">
-                            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                            <span class="rating-text">5-Star Google Rating</span>
-                        </div>
-                    </div>
-                </div>
+                                    </div>
             </div>
         </div>
     </section>
@@ -2276,86 +2241,87 @@
 
     <!-- SOCIAL PROOF STRIP -->
     <div class="social-proof-strip">
-        <div class="proof-item">
-            <p class="proof-quote">"I'm always blown away by Marijana's balloon creations. Her creativity and attention to detail are incredible."</p>
-            <p class="proof-attribution">Kelly Wong</p>
-        </div>
-        <div class="proof-item">
-            <p class="proof-quote">"This woman spends an insane amount of time and energy to get each project right. Her projects are forever evolving."</p>
-            <p class="proof-attribution">Jason Lefebvre</p>
-        </div>
-        <div class="proof-item">
-            <p class="proof-quote">"Very professional to work with and will definitely be using Events by MJ again in the future."</p>
-            <p class="proof-attribution">BGS Career Ventures</p>
-        </div>
-    </div>
-
-    <!-- TESTIMONIALS SECTION -->
-    <section class="testimonials" id="testimonials">
-        <div class="section-header">
-            <span class="section-label">Reviews</span>
-            <h2>Kind Words from Our Clients</h2>
-        </div>
-
-        <div class="testimonial-featured">
-            <p class="quote-text">"She is super creative and puts her heart into any balloon design. Marijana did a beautiful setup for my baby shower and it truly was amazing. My family was not able to attend but when I showed them the pictures, the first thing they said was WOW the balloons look amazing."</p>
-            <div class="author-info">
-                <h3 class="author-name">Sandeep Parmar</h3>
-                <span class="event-badge">Baby Shower</span>
-            </div>
-        </div>
-
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <span class="event-badge">Event Styling</span>
-                <p class="quote-text"><span class="truncated">"From start to finish, she went above and beyond. The attention to detail was incredible, and the personal touches truly made everything feel so special. Her customer service is top notch&hellip;"</span><span class="full-text">"From start to finish, she went above and beyond. The attention to detail was incredible, and the personal touches truly made everything feel so special. Her customer service is top notch &mdash; so friendly, professional, and genuinely cares about making your vision come to life. She even came back to repurpose my balloon arch for another event, which I thought was so thoughtful!"</span></p>
-                <span class="read-more" onclick="this.closest('.testimonial-card').classList.toggle('expanded');this.textContent=this.closest('.testimonial-card').classList.contains('expanded')?'Read less':'Read more'">Read more</span>
-                <h4 class="author-name">Lizet Brkic</h4>
+                <div>
+                    <p>"I'm always blown away by Marijana's balloon creations. Her creativity and attention to detail are incredible, and each piece is made with so much care. The amazing part is that every new creation seems even better than the last. She truly works magic with balloons!"</p>
+                    <cite>Kelly Wong</cite>
+                </div>
+                <div>
+                    <p>"This woman spends an insane amount of time and energy to get each project right. Her projects are forever evolving."</p>
+                    <cite>Jason Lefebvre</cite>
+                </div>
+                <div>
+                    <p>"Events by MJ promised wonderful balloon columns and decorations for our most recent Open House. Very professional to work with and will definitely be using Events by MJ again in the future."</p>
+                    <cite>BGS Career Ventures</cite>
+                </div>
             </div>
 
-            <div class="testimonial-card">
-                <span class="event-badge">Birthday Celebrations</span>
-                <p class="quote-text"><span class="truncated">"We have had several of her balloon stacks to celebrate our kids' birthdays. Each time, Maja takes the time to determine your favourite colours, characters, or activities&hellip;"</span><span class="full-text">"We have had several of her balloon stacks to celebrate our kids' birthdays. Each time, Maja takes the time to determine your favourite colours, characters, or activities so that her creation is customized to honour the person it's made for. The balloon stacks are much bigger than expected, look amazing, and last for well over a month!"</span></p>
-                <span class="read-more" onclick="this.closest('.testimonial-card').classList.toggle('expanded');this.textContent=this.closest('.testimonial-card').classList.contains('expanded')?'Read less':'Read more'">Read more</span>
-                <h4 class="author-name">Melanie Vee</h4>
+            <div class="testimonial-featured">
+                <blockquote>
+                    <p>"I cannot recommend Marijana enough. She is super creative and puts her heart into any balloon design that she does. Marijana did a beautiful set up for my baby shower and it truly was amazing. My family was not able to attend but when I showed them the pictures, the first thing they said was WOW the balloons look amazing. You can guarantee that her heart and soul is poured into whatever she does. Each balloon design she does is unique and thoughtful and her energy is also contagious. On top of her beautiful balloon designs, she is an amazing person and someone you just will never forget once you meet her. She truly has a heart of gold. So what are you waiting for&hellip; reach out to Marijana for your next event and I know you will not regret it!"</p>
+                </blockquote>
+                <div class="featured-author">
+                    <h4>Sandeep Parmar</h4>
+                    <span>Baby Shower</span>
+                </div>
             </div>
 
-            <div class="testimonial-card">
-                <span class="event-badge">Gender Reveal &amp; Baby Shower</span>
-                <p class="quote-text">"The balloon setup and decorations were absolutely beautiful and truly made the whole event come to life. You could really see her passion in her work and how much of herself she puts into every detail."</p>
-                <h4 class="author-name">Leonylyn Roman Ulang</h4>
-            </div>
+            <div class="testimonial-grid">
 
-            <div class="testimonial-card">
-                <span class="event-badge">Birthday &amp; Special Events</span>
-                <p class="quote-text">"Events by MJ have not disappointed our family and continue to amaze us over and over again. She pours her heart into everything she does. She even had high praise from my 14-year-old son, which for anyone who has a teenage boy, knows that can be rare!"</p>
-                <h4 class="author-name">Laura McGean</h4>
-            </div>
+                <div class="testimonial-card">
+                    <span class="event-badge">Event Styling</span>
+                    <p class="quote-text"><span class="truncated">"I can't recommend Marijana enough! From start to finish, she went above and beyond. The attention to detail was incredible, and the personal touches truly made everything feel so special.&hellip;"</span><span class="full-text">"I can't recommend Marijana enough! From start to finish, she went above and beyond. The attention to detail was incredible, and the personal touches truly made everything feel so special. Her customer service is top notch—so friendly, professional, and genuinely cares about making your vision come to life. What really stood out was her commitment to go the extra mile—she even came back to repurpose my balloon arch for another event, which I thought was so thoughtful! If you're looking for someone who delivers beautiful work and an exceptional experience, she's the one. Highly recommend!"</span></p>
+                    <span class="read-more" onclick="this.closest('.testimonial-card').classList.toggle('expanded');this.textContent=this.closest('.testimonial-card').classList.contains('expanded')?'Read less':'Read more'">Read more</span>
+                    <h4 class="author-name">Lizet Brkic</h4>
+                </div>
 
-            <div class="testimonial-card">
-                <span class="event-badge">Event D&eacute;cor</span>
-                <p class="quote-text">"Every project they create is absolutely amazing. The attention to detail, creativity, and effort they put into their balloon designs really shows. They turn simple balloons into incredible works of art."</p>
-                <h4 class="author-name">Kaitlin Larissa</h4>
-            </div>
+                <div class="testimonial-card">
+                    <span class="event-badge">Birthday Celebrations</span>
+                    <p class="quote-text"><span class="truncated">"I highly recommend Events by MJ. We have had several of her balloon stacks to celebrate our kids' birthdays. Each time, Maja takes the time to determine your favorite colors,&hellip;"</span><span class="full-text">"I highly recommend Events by MJ. We have had several of her balloon stacks to celebrate our kids' birthdays. Each time, Maja takes the time to determine your favorite colors, characters, or activities so that her creation is customized to honor the person it's made for. She is one of the kindest people I know and takes pride in creating the perfect item for you. She will check in, show you personalized items (ie video game characters etc), and ensure what you envision is what she is creating. The balloon stacks themselves are much bigger than I had thought, they look amazing, and they last for well over a month! It's a special statement that can be kept and used for some time (unlike helium balloons that are flat in days)! I highly recommend working with Maja, she will help create something beautiful and memorable to make any event special."</span></p>
+                    <span class="read-more" onclick="this.closest('.testimonial-card').classList.toggle('expanded');this.textContent=this.closest('.testimonial-card').classList.contains('expanded')?'Read less':'Read more'">Read more</span>
+                    <h4 class="author-name">Melanie Vee</h4>
+                </div>
 
-            <div class="testimonial-card">
-                <span class="event-badge">Baby Shower</span>
-                <p class="quote-text">"We are so grateful to Marijana for decorating and making our baby shower truly special! She was extremely kind, patient, hands-on, and always willing to help. The decorations were stunning, and our guests couldn't stop complimenting how perfect everything looked."</p>
-                <h4 class="author-name">Erica Cortado Lacno</h4>
-            </div>
+                <div class="testimonial-card">
+                    <span class="event-badge">Gender Reveal &amp; Baby Shower</span>
+                    <p class="quote-text"><span class="truncated">"I just want to give a big shoutout to Marijana for the amazing job she did with our gender reveal and baby shower. The balloon setup and decorations were absolutely beautiful and truly made the whole event come to life.&hellip;"</span><span class="full-text">"I just want to give a big shoutout to Marijana for the amazing job she did with our gender reveal and baby shower. The balloon setup and decorations were absolutely beautiful and truly made the whole event come to life. You could really see her passion in her work and how much of herself she puts into every detail. Each setup feels unique and thoughtfully designed, always bringing something fresh and special to the event. She's also one of the kindest souls I've ever met, which makes working with her even more wonderful."</span></p>
+                    <span class="read-more" onclick="this.closest('.testimonial-card').classList.toggle('expanded');this.textContent=this.closest('.testimonial-card').classList.contains('expanded')?'Read less':'Read more'">Read more</span>
+                    <h4 class="author-name">Leonylyn Roman Ulang</h4>
+                </div>
 
-            <div class="testimonial-card">
-                <span class="event-badge">Event Design</span>
-                <p class="quote-text">"She has a great ability to reflect the interests and theme of an event in her designs, which makes everything feel personal and special. She also uses high-quality balloons, so the finished look is beautiful and lasts well beyond the event."</p>
-                <h4 class="author-name">Martina Duma-Ruth</h4>
-            </div>
+                <div class="testimonial-card">
+                    <span class="event-badge">Birthday &amp; Special Events</span>
+                    <p class="quote-text"><span class="truncated">"I do not have family close by to celebrate birthdays and special events with. Marijana's personal touches with her creations made with such care and love help patch that hole.&hellip;"</span><span class="full-text">"I do not have family close by to celebrate birthdays and special events with. Marijana's personal touches with her creations made with such care and love help patch that hole. Events by MJ have not disappointed our family and continue to amaze us over and over again. She pours her heart into everything she does and everyone who meets her. She even had high praise from my 14 year old son, which for anyone who has a teenage boy, knows that can be rare!! Thank you for being you and sharing your gift and passion with us!"</span></p>
+                    <span class="read-more" onclick="this.closest('.testimonial-card').classList.toggle('expanded');this.textContent=this.closest('.testimonial-card').classList.contains('expanded')?'Read less':'Read more'">Read more</span>
+                    <h4 class="author-name">Laura McGean</h4>
+                </div>
 
-            <div class="testimonial-card">
-                <span class="event-badge">Repeat Client</span>
-                <p class="quote-text">"Maja is incredibly passionate and talented. She puts so much love and care in everything that she creates. She has been brightening up our special occasions for many years."</p>
-                <h4 class="author-name">Marija Gavric</h4>
+                <div class="testimonial-card">
+                    <span class="event-badge">Event D&eacute;cor</span>
+                    <p class="quote-text"><span class="truncated">"I can't recommend Marijana enough! Every project they create is absolutely amazing. The attention to detail, creativity, and effort they put into their balloon designs really shows.&hellip;"</span><span class="full-text">"I can't recommend Marijana enough! Every project they create is absolutely amazing. The attention to detail, creativity, and effort they put into their balloon designs really shows. Whether it's for a party, event, or special celebration, they turn simple balloons into incredible works of art. Everything always looks professional, colorful, and perfectly put together, and you can tell they truly care about making each setup special. If you're looking for someone who will make your event stand out and wow your guests, this is the person to go to. Highly recommend!"</span></p>
+                    <span class="read-more" onclick="this.closest('.testimonial-card').classList.toggle('expanded');this.textContent=this.closest('.testimonial-card').classList.contains('expanded')?'Read less':'Read more'">Read more</span>
+                    <h4 class="author-name">Kaitlin Larissa</h4>
+                </div>
+
+                <div class="testimonial-card">
+                    <span class="event-badge">Baby Shower</span>
+                    <p class="quote-text"><span class="truncated">"We are so grateful to Marijana for decorating and making our baby shower truly special! Her creativity and attention to detail brought our vision to life beautifully.&hellip;"</span><span class="full-text">"We are so grateful to Marijana for decorating and making our baby shower truly special! Her creativity and attention to detail brought our vision to life beautifully. She was extremely kind, patient, hands on, and always willing to help, making the planning process so easy and enjoyable. The decorations were stunning, and our guests couldn't stop complimenting how perfect everything looked. No doubt she makes everything she touches beautiful! We highly recommend her services for anyone who wants their ideas to come to life!"</span></p>
+                    <span class="read-more" onclick="this.closest('.testimonial-card').classList.toggle('expanded');this.textContent=this.closest('.testimonial-card').classList.contains('expanded')?'Read less':'Read more'">Read more</span>
+                    <h4 class="author-name">Erica Cortado Lacno</h4>
+                </div>
+
+                <div class="testimonial-card">
+                    <span class="event-badge">Event Design</span>
+                    <p class="quote-text"><span class="truncated">"I highly recommend Marijana! She is incredibly creative and puts so much effort into every project. You can really tell she cares about what her clients want and works hard to bring their vision to life.&hellip;"</span><span class="full-text">"I highly recommend Marijana! She is incredibly creative and puts so much effort into every project. You can really tell she cares about what her clients want and works hard to bring their vision to life. She has a great ability to reflect the interests and theme of an event in her designs, which makes everything feel personal and special. She also uses high-quality balloons, so the finished look is beautiful and lasts well beyond the event. Throughout the planning process she keeps you updated and makes sure every detail is just right. If you're looking for someone who truly puts heart into making your event memorable, she's a fantastic choice!"</span></p>
+                    <span class="read-more" onclick="this.closest('.testimonial-card').classList.toggle('expanded');this.textContent=this.closest('.testimonial-card').classList.contains('expanded')?'Read less':'Read more'">Read more</span>
+                    <h4 class="author-name">Martina Duma-Ruth</h4>
+                </div>
+
+                <div class="testimonial-card">
+                    <span class="event-badge">Repeat Client</span>
+                    <p class="quote-text">"Maja is incredibly passionate and talented. She puts so much love and care in everything that she creates. The joy on the faces of her clients is her primary driving factor. She has been brightening up our special occasions for many years."</p>
+                    <h4 class="author-name">Marija Gavric</h4>
+                </div>
             </div>
-        </div>
 
         <p class="testimonial-trust-line">Thoughtfully designed, beautifully executed, and loved by clients across Edmonton.</p>
     </section>
