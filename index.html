@@ -1494,12 +1494,27 @@
             display: flex; align-items: center; justify-content: center;
             background: #f9f7f4;
         }
+        .scroll-stop-inner {
+            display: flex; align-items: center; justify-content: center;
+            gap: 40px; width: 100%; height: 100%; max-width: 1200px; padding: 0 20px;
+        }
         .scroll-stop-container {
-            position: relative; width: 100%; height: 100%;
+            position: relative; flex: 1; height: 100%;
             display: flex; align-items: center; justify-content: center;
         }
+        .scroll-stop-care {
+            flex: 0 0 auto; max-width: 380px; display: flex; align-items: center;
+        }
+        .scroll-stop-care img {
+            width: 100%; border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
         #scrollStopCanvas {
-            height: 100vh; width: auto; max-width: 100vw; display: block;
+            height: 100vh; width: auto; max-width: 100%; display: block;
+        }
+        @media (max-width: 900px) {
+            .scroll-stop-inner { flex-direction: column; gap: 0; padding: 0; }
+            .scroll-stop-care { display: none; }
         }
         .scroll-stop-brand {
             position: absolute; top: 50%; left: 50%;
@@ -1546,6 +1561,16 @@
             position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
             font-family: var(--font-display); color: var(--purple-deep);
             font-size: 1.1rem; z-index: 5;
+        }
+        .balloon-care-mobile {
+            display: none; padding: 60px 20px; background: var(--white); text-align: center;
+        }
+        .balloon-care-mobile img {
+            width: 100%; max-width: 500px; border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 900px) {
+            .balloon-care-mobile { display: block; }
         }
         @media (max-width: 768px) {
             .scroll-stop-brand .ss-logo { font-size: 2.6rem; }
@@ -1895,29 +1920,31 @@
         </div>
     </section>
 
-        <!-- Balloon Care & Handling -->
-        <section class="balloon-care-section" style="padding:60px 20px;background:var(--white);text-align:center;">
-            <div style="max-width:500px;margin:0 auto;">
-                <img src="images/balloon-care-handling.png" alt="Balloon Care and Handling Guide - Events by MJ" style="width:100%;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.1);" loading="lazy">
-            </div>
-        </section>
-
-
-    <!-- SCROLL-STOP SECTION -->
+    <!-- SCROLL-STOP SECTION with Balloon Care side-by-side -->
     <section class="scroll-stop-section" id="scrollStop">
         <div class="scroll-stop-sticky">
-            <div class="scroll-stop-container">
-                <div class="scroll-stop-loading" id="ssLoading">Loading...</div>
-                <canvas id="scrollStopCanvas"></canvas>
-                <div class="scroll-stop-brand">
-                    <div class="ss-logo" id="ssLogo">Events by MJ</div>
-                    <div class="ss-tagline" id="ssTagline">Every Detail Made Beautiful</div>
-                    <a href="#contact" class="ss-cta" id="ssCta">Book Your Event</a>
+            <div class="scroll-stop-inner">
+                <div class="scroll-stop-care">
+                    <img src="images/balloon-care-handling.png" alt="Balloon Care and Handling Guide - Events by MJ" loading="lazy">
+                </div>
+                <div class="scroll-stop-container">
+                    <div class="scroll-stop-loading" id="ssLoading">Loading...</div>
+                    <canvas id="scrollStopCanvas"></canvas>
+                    <div class="scroll-stop-brand">
+                        <div class="ss-logo" id="ssLogo">Events by MJ</div>
+                        <div class="ss-tagline" id="ssTagline">Every Detail Made Beautiful</div>
+                        <a href="#contact" class="ss-cta" id="ssCta">Book Your Event</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <div class="scroll-stop-hint" id="ssHint"></div>
+
+    <!-- Balloon Care (mobile only - hidden on desktop where it's beside the arch) -->
+    <section class="balloon-care-mobile">
+        <img src="images/balloon-care-handling.png" alt="Balloon Care and Handling Guide - Events by MJ" loading="lazy">
+    </section>
 
     <!-- ABOUT SECTION -->
     <section class="about" id="about">
