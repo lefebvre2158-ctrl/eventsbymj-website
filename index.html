@@ -1494,27 +1494,12 @@
             display: flex; align-items: center; justify-content: center;
             background: #f9f7f4;
         }
-        .scroll-stop-inner {
-            display: flex; align-items: center; justify-content: center;
-            gap: 40px; width: 100%; height: 100%; max-width: 1200px; padding: 0 20px;
-        }
         .scroll-stop-container {
-            position: relative; flex: 1; height: 100%;
+            position: relative; width: 100%; height: 100%;
             display: flex; align-items: center; justify-content: center;
-        }
-        .scroll-stop-care {
-            flex: 0 0 auto; max-width: 380px; display: flex; align-items: center;
-        }
-        .scroll-stop-care img {
-            width: 100%; border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
         }
         #scrollStopCanvas {
             height: 100vh; width: auto; max-width: 100%; display: block;
-        }
-        @media (max-width: 900px) {
-            .scroll-stop-inner { flex-direction: column; gap: 0; padding: 0; }
-            .scroll-stop-care { display: none; }
         }
         .scroll-stop-brand {
             position: absolute; top: 50%; left: 50%;
@@ -1562,15 +1547,84 @@
             font-family: var(--font-display); color: var(--purple-deep);
             font-size: 1.1rem; z-index: 5;
         }
-        .balloon-care-mobile {
-            display: none; padding: 60px 20px; background: var(--white); text-align: center;
+        /* Balloon Care Dropdown */
+        .balloon-care-dropdown {
+            max-width: 800px; margin: 0 auto; padding: 0 20px 60px;
+            text-align: center;
         }
-        .balloon-care-mobile img {
-            width: 100%; max-width: 500px; border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        .balloon-care-toggle {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--purple-deep); color: #fff;
+            font-family: var(--font-body); font-weight: 600; font-size: 0.9rem;
+            letter-spacing: 2px; text-transform: uppercase;
+            padding: 15px 36px; border-radius: 50px; border: none;
+            cursor: pointer; transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(107,58,107,0.25);
         }
-        @media (max-width: 900px) {
-            .balloon-care-mobile { display: block; }
+        .balloon-care-toggle:hover { background: #7d4a7d; transform: translateY(-2px); box-shadow: 0 6px 25px rgba(107,58,107,0.35); }
+        .balloon-care-toggle svg {
+            width: 18px; height: 18px; transition: transform 0.3s ease;
+        }
+        .balloon-care-toggle.open svg { transform: rotate(180deg); }
+        .balloon-care-content {
+            max-height: 0; overflow: hidden; transition: max-height 0.5s ease, opacity 0.4s ease;
+            opacity: 0; text-align: left;
+        }
+        .balloon-care-content.open {
+            max-height: 1200px; opacity: 1; margin-top: 30px;
+        }
+        .balloon-care-card {
+            background: linear-gradient(135deg, #fdf8f0 0%, #faf5f7 100%);
+            border-radius: 16px; padding: 40px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border: 1px solid rgba(201,168,76,0.2);
+        }
+        .balloon-care-card h3 {
+            font-family: var(--font-script); font-size: 2rem;
+            color: var(--purple-deep); margin-bottom: 8px; text-align: center;
+        }
+        .balloon-care-card .care-subtitle {
+            font-family: var(--font-display); font-style: italic;
+            color: var(--gold); font-size: 0.85rem; letter-spacing: 2px;
+            text-transform: uppercase; text-align: center; margin-bottom: 28px;
+        }
+        .balloon-care-card h4 {
+            font-family: var(--font-display); font-size: 1.05rem;
+            color: var(--charcoal); margin: 24px 0 12px;
+            letter-spacing: 1px; text-transform: uppercase;
+            border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 6px;
+        }
+        .balloon-care-card h4:first-of-type { margin-top: 0; }
+        .balloon-care-card ul {
+            list-style: none; padding: 0; margin: 0;
+        }
+        .balloon-care-card ul li {
+            position: relative; padding: 8px 0 8px 24px;
+            font-family: var(--font-body); font-size: 0.95rem;
+            color: var(--text); line-height: 1.6;
+        }
+        .balloon-care-card ul li::before {
+            content: ''; position: absolute; left: 0; top: 16px;
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--rose); opacity: 0.6;
+        }
+        .balloon-care-card .care-note {
+            margin-top: 28px; padding: 20px 24px;
+            background: rgba(201,168,76,0.08);
+            border: 1px solid rgba(201,168,76,0.25);
+            border-radius: 10px; text-align: center;
+        }
+        .balloon-care-card .care-note strong {
+            display: block; font-family: var(--font-display);
+            font-size: 0.9rem; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--charcoal); margin-bottom: 8px;
+        }
+        .balloon-care-card .care-note p {
+            font-size: 0.9rem; color: var(--text); line-height: 1.6; margin: 0;
+        }
+        @media (max-width: 768px) {
+            .balloon-care-card { padding: 28px 20px; }
+            .balloon-care-card h3 { font-size: 1.6rem; }
         }
         @media (max-width: 768px) {
             .scroll-stop-brand .ss-logo { font-size: 2.6rem; }
@@ -1810,6 +1864,25 @@
             });
         }
         });
+
+        // Balloon Care toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggle = document.getElementById('balloonCareToggle');
+            var content = document.getElementById('balloonCareContent');
+            if (toggle && content) {
+                toggle.addEventListener('click', function() {
+                    var isOpen = content.classList.contains('open');
+                    content.classList.toggle('open');
+                    toggle.classList.toggle('open');
+                    toggle.setAttribute('aria-expanded', !isOpen);
+                    if (!isOpen) {
+                        setTimeout(function() {
+                            toggle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 100);
+                    }
+                });
+            }
+        });
     </script>
 </head>
 <body>
@@ -1921,31 +1994,21 @@
         </div>
     </section>
 
-    <!-- SCROLL-STOP SECTION with Balloon Care side-by-side -->
+    <!-- SCROLL-STOP SECTION -->
     <section class="scroll-stop-section" id="scrollStop">
         <div class="scroll-stop-sticky">
-            <div class="scroll-stop-inner">
-                <div class="scroll-stop-care">
-                    <img src="images/balloon-care-handling.png" alt="Balloon Care and Handling Guide - Events by MJ" loading="lazy">
-                </div>
-                <div class="scroll-stop-container">
-                    <div class="scroll-stop-loading" id="ssLoading">Loading...</div>
-                    <canvas id="scrollStopCanvas"></canvas>
-                    <div class="scroll-stop-brand">
-                        <div class="ss-logo" id="ssLogo">Events by MJ</div>
-                        <div class="ss-tagline" id="ssTagline">Every Detail Made Beautiful</div>
-                        <a href="#contact" class="ss-cta" id="ssCta">Book Your Event</a>
-                    </div>
+            <div class="scroll-stop-container">
+                <div class="scroll-stop-loading" id="ssLoading">Loading...</div>
+                <canvas id="scrollStopCanvas"></canvas>
+                <div class="scroll-stop-brand">
+                    <div class="ss-logo" id="ssLogo">Events by MJ</div>
+                    <div class="ss-tagline" id="ssTagline">Every Detail Made Beautiful</div>
+                    <a href="#contact" class="ss-cta" id="ssCta">Book Your Event</a>
                 </div>
             </div>
         </div>
     </section>
     <div class="scroll-stop-hint" id="ssHint"></div>
-
-    <!-- Balloon Care (mobile only - hidden on desktop where it's beside the arch) -->
-    <section class="balloon-care-mobile">
-        <img src="images/balloon-care-handling.png" alt="Balloon Care and Handling Guide - Events by MJ" loading="lazy">
-    </section>
 
     <!-- ABOUT SECTION -->
     <section class="about" id="about">
@@ -2584,7 +2647,41 @@
         </div>
     </section>
 
-    
+    <!-- BALLOON CARE DROPDOWN -->
+    <div class="balloon-care-dropdown">
+        <button class="balloon-care-toggle" id="balloonCareToggle" aria-expanded="false" aria-controls="balloonCareContent">
+            Balloon Handling &amp; Care
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="balloon-care-content" id="balloonCareContent">
+            <div class="balloon-care-card">
+                <h3>Balloon Care &amp; Handling</h3>
+                <div class="care-subtitle">Events by MJ</div>
+
+                <h4>Handling Your Balloons</h4>
+                <ul>
+                    <li>Always lift and carry balloon stacks from the base only. Foil balloons and custom elements are delicate and may tear or weaken if tugged, pulled, or squeezed.</li>
+                    <li>Avoid squeezing or compressing balloons together. Excess pressure can compromise seams, vinyl details, and foil integrity.</li>
+                    <li>Do not re-tie, separate, or adjust balloons. Each design is intentionally secured for balance, longevity, and visual impact.</li>
+                </ul>
+
+                <h4>Placement &amp; Environment</h4>
+                <ul>
+                    <li>Display balloons in a low-traffic area. Avoid entrances, hallways, dance floors, play areas, or anywhere they may be bumped.</li>
+                    <li>Limit movement once placed. Repeated lifting or repositioning can weaken the structure and shorten lifespan.</li>
+                    <li>Keep away from heat and direct sunlight. Heat, sun exposure, fireplaces, heaters, and windows can cause balloons to expand, warp, or pop.</li>
+                    <li>Indoor use is strongly recommended.</li>
+                </ul>
+
+                <div class="care-note">
+                    <strong>Important Note</strong>
+                    <p>Once balloons are picked up or installed, care and handling become the client's responsibility. Due to the handcrafted and delicate nature of balloon d&eacute;cor, replacements or repairs cannot be guaranteed after pickup or installation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- MICRO PROOF -->
     <div class="micro-proof">Trusted by families and businesses across Edmonton to make every occasion unforgettable.</div>
 
