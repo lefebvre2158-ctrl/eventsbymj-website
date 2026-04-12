@@ -687,19 +687,21 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            align-items: start;
+            align-items: stretch;
             margin-bottom: 80px;
         }
 
         .pricing-card {
-            background: linear-gradient(135deg, var(--white) 0%, #fdfaf6 100%);
+            background: linear-gradient(165deg, #fdf8f0 0%, #faf5f7 50%, #f5eff8 100%);
             border-radius: 20px;
-            padding: 48px 36px;
+            padding: 44px 32px 36px;
             text-align: center;
             transition: var(--transition);
             box-shadow: var(--shadow-soft);
             position: relative;
             border: 1.5px solid var(--gold-light);
+            display: flex;
+            flex-direction: column;
         }
 
         .pricing-card::before {
@@ -712,10 +714,10 @@
         }
 
         .pricing-card.featured {
-            transform: scale(1.05);
+            transform: scale(1.03);
             box-shadow: 0 12px 50px rgba(201, 168, 76, 0.2);
             border: 2px solid var(--gold);
-            background: linear-gradient(135deg, #fffdf8 0%, #fdf8f0 100%);
+            background: linear-gradient(165deg, #fffdf8 0%, #fdf8f0 50%, #f8f2fb 100%);
         }
 
         .pricing-card.featured::after {
@@ -740,69 +742,210 @@
             border-color: var(--gold);
         }
 
-        .pricing-card.featured:hover { transform: scale(1.05) translateY(-8px); }
-
-        .pricing-icon {
-            width: 64px; height: 64px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--rose-light), var(--rose-pale));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(212, 133, 154, 0.2);
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            color: var(--rose);
-        }
+        .pricing-card.featured:hover { transform: scale(1.03) translateY(-8px); }
 
         .pricing-name {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-family: var(--font-script);
+            font-size: 2rem;
             color: var(--purple-deep);
-            margin-bottom: 12px;
+            margin-bottom: 4px;
+            line-height: 1.2;
         }
 
         .pricing-price {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: var(--gold);
             margin-bottom: 4px;
+            font-family: var(--font-display);
         }
 
         .pricing-price-suffix {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-light);
             font-weight: 400;
         }
 
         .pricing-desc {
-            font-size: 0.95rem;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 0.88rem;
             color: var(--text-medium);
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             line-height: 1.6;
-            min-height: 50px;
+            padding: 0 8px;
         }
+
+        .pricing-section-title {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-align: left;
+            margin: 20px 0 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+        }
+
+        .pricing-section-title:first-of-type { margin-top: 0; }
 
         .pricing-features {
             text-align: left;
-            margin-bottom: 28px;
+            margin-bottom: 0;
         }
 
         .pricing-features li {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-medium);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.5;
         }
 
         .pricing-features li::before {
-            content: '\2713';
+            content: '';
+            position: absolute;
+            left: 0; top: 7px;
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--rose);
+            opacity: 0.55;
+        }
+
+        .pricing-features li .feature-detail {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 1px;
+        }
+
+        .pricing-suited {
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        .pricing-suited li {
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            margin-bottom: 6px;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .pricing-suited li::before {
+            content: '\2727';
+            position: absolute;
+            left: 0; top: 0;
             color: var(--gold);
-            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        .pricing-customization {
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        .pricing-customization li {
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            margin-bottom: 6px;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .pricing-customization li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 7px;
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--purple-deep);
+            opacity: 0.35;
+        }
+
+        .pricing-customization .note {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        .pricing-mj-touch {
+            text-align: center;
+            margin: 20px 0;
+            padding: 12px 0;
+        }
+
+        .pricing-mj-touch .mj-script {
+            font-family: var(--font-script);
+            font-size: 1.15rem;
+            color: var(--purple-deep);
+        }
+
+        .pricing-mj-touch .mj-tagline {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 0.78rem;
+            color: var(--text-light);
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-booking {
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid rgba(201, 168, 76, 0.2);
+        }
+
+        .pricing-booking-title {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .pricing-booking ul {
+            text-align: left;
+            margin-bottom: 8px;
+        }
+
+        .pricing-booking ul li {
+            font-size: 0.8rem;
+            color: var(--text-medium);
+            margin-bottom: 5px;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .pricing-booking ul li::before {
+            content: '';
+            position: absolute;
+            left: 2px; top: 4px;
+            width: 8px; height: 8px;
+            border: 1.5px solid var(--gold);
+            border-radius: 50%;
+        }
+
+        .pricing-booking .booking-note {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-style: italic;
+            text-align: left;
+            margin-top: 4px;
+        }
+
+        .pricing-cta {
+            margin-top: 20px;
         }
 
         /* Floral decorations */
@@ -1467,6 +1610,8 @@
             .nav-toggle { display: flex; }
             .hero-content { padding: 80px 24px 60px; }
             .pricing-grid, .additional-services-grid { grid-template-columns: 1fr; }
+            .pricing-card.featured { transform: none; }
+            .pricing-card.featured:hover { transform: translateY(-8px); }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
             .booking-steps { grid-template-columns: 1fr; }
             .testimonial-grid { grid-template-columns: 1fr; }
@@ -2042,50 +2187,135 @@
             </div>
 
             <div class="pricing-grid">
-                <!-- Petite Package -->
+
+                <!-- PETITE PACKAGE -->
                 <div class="pricing-card">
-                    <div class="pricing-icon">&#x1F388;</div>
-                    <div class="pricing-name">Petite</div>
+                    <div class="pricing-name">Petite Package</div>
                     <div class="pricing-price">$250</div>
-                    <p class="pricing-desc">Perfect for intimate gatherings and small celebrations.</p>
+                    <p class="pricing-desc">A simple, elegant statement piece designed for intimate celebrations.</p>
+
+                    <div class="pricing-section-title">What's Included</div>
                     <ul class="pricing-features">
-                        <li>1 Signature Balloon Stack</li>
-                        <li>Single colour scheme</li>
-                        <li>Same-day delivery</li>
-                        <li>Basic setup</li>
+                        <li>Single Chiara Backdrop</li>
+                        <li>Balloon Garland to One Side</li>
+                        <li>2&ndash;3 Colour Palette</li>
+                        <li>Standard Balloon Styling (Non-Organic)</li>
+                        <li>Birthday / Party Neon Sign</li>
+                        <li>Pickup or Simple Install</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Get a Quote</a>
+
+                    <div class="pricing-section-title">Best Suited For</div>
+                    <ul class="pricing-suited">
+                        <li>Small Celebrations</li>
+                        <li>Home Setups</li>
+                        <li>Add-Ons to Existing D&eacute;cor</li>
+                    </ul>
+
+                    <div class="pricing-section-title">Customization Options</div>
+                    <ul class="pricing-customization">
+                        <li>Custom Vinyl Wording</li>
+                        <li>Additional Balloons</li>
+                        <li>Floral or Specialty Accents</li>
+                        <li>Upgraded Backdrop Options</li>
+                        <p class="note">*Additional charges apply</p>
+                    </ul>
+
+                    <div class="pricing-mj-touch">
+                        <div class="mj-script">Events by MJ Touch</div>
+                        <div class="mj-tagline">Stylish &amp; Affordable &mdash; Perfect for Any Occasion</div>
+                    </div>
+
+                    <div class="pricing-booking">
+                        <div class="pricing-booking-title">Booking Details</div>
+                        <ul>
+                            <li>50% Non-Refundable Deposit Required</li>
+                            <li>Balance Due on Event Day</li>
+                            <li>Damage Deposit for Rentals</li>
+                        </ul>
+                        <p class="booking-note">*Delivery &amp; setup fees are not included and will be quoted based on location.</p>
+                    </div>
+
+                    <div class="pricing-cta">
+                        <a href="#contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Get a Quote</a>
+                    </div>
                 </div>
 
-                <!-- Signature Package (Featured) -->
+                <!-- SIGNATURE PACKAGE -->
                 <div class="pricing-card featured">
-                    <div class="pricing-icon">&#x1F389;</div>
-                    <div class="pricing-name">Signature</div>
-                    <div class="pricing-price">$350<span class="pricing-price-suffix">+</span></div>
-                    <p class="pricing-desc">Our most popular choice for memorable celebrations.</p>
+                    <div class="pricing-name">Signature Package</div>
+                    <div class="pricing-price">Starting at $350</div>
+                    <p class="pricing-desc">An elevated, custom-designed setup creating a refined and memorable focal point for your celebration.</p>
+
+                    <div class="pricing-section-title">What's Included</div>
                     <ul class="pricing-features">
-                        <li>Grande Signature Balloon Stack</li>
-                        <li>Custom colour palettes</li>
-                        <li>Professional setup & styling</li>
-                        <li>2-hour event coverage</li>
+                        <li>1&ndash;2 Chiara Backdrops<span class="feature-detail">Layered for depth and dimension</span></li>
+                        <li>Organic Balloon Styling<span class="feature-detail">One side: full, lush installation &bull; Second backdrop: partial accent styling</span></li>
+                        <li>Up to 4 Colour Palette</li>
+                        <li>Light Florals / Greenery Accents<span class="feature-detail">Signature MJ touch</span></li>
+                        <li>1 Custom Element Included:<span class="feature-detail">Vinyl Wording OR Cutout Sign</span></li>
+                        <li>Professional Installation &amp; Styling</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary" style="width: 100%; justify-content: center;">Book Now</a>
+
+                    <div class="pricing-mj-touch">
+                        <div class="mj-script">Events by MJ Touch</div>
+                        <div class="mj-tagline">Balanced, luxurious &mdash; organic balloon artistry with soft floral details for a timeless, cohesive design.</div>
+                    </div>
+
+                    <div class="pricing-booking">
+                        <div class="pricing-booking-title">Booking Details</div>
+                        <ul>
+                            <li>50% Non-Refundable Deposit Required</li>
+                            <li>Balance Due on Event Day</li>
+                            <li>Damage Deposit Required for Rental Items</li>
+                        </ul>
+                        <p class="booking-note">*Delivery &amp; setup fees are not included and will be quoted based on location.</p>
+                    </div>
+
+                    <div class="pricing-cta">
+                        <a href="#contact" class="btn btn-primary" style="width: 100%; justify-content: center;">Book Now</a>
+                    </div>
                 </div>
 
-                <!-- Luxe Package -->
+                <!-- LUXE PACKAGE -->
                 <div class="pricing-card">
-                    <div class="pricing-icon">&#x2728;</div>
-                    <div class="pricing-name">Luxe</div>
-                    <div class="pricing-price">$500<span class="pricing-price-suffix">+</span></div>
-                    <p class="pricing-desc">Full event styling for a completely transformed space.</p>
+                    <div class="pricing-name">Luxe Package</div>
+                    <div class="pricing-price">Starting at $500<span class="pricing-price-suffix">+</span></div>
+                    <p class="pricing-desc">Fully customized &amp; designed for your unique vision. A curated, high-end experience where every detail is intentionally styled to create a breathtaking statement.</p>
+
+                    <div class="pricing-section-title">What's Included</div>
                     <ul class="pricing-features">
-                        <li>Custom Themed & Statement Stack</li>
-                        <li>Balloon arches & garlands</li>
-                        <li>Full event styling</li>
-                        <li>4+ hours on-site</li>
+                        <li>Multiple Chiara Backdrops or single 7.2' round arch</li>
+                        <li>Full Organic Balloon Installation</li>
+                        <li>Up to 6-Colour Palette</li>
+                        <li>Florals &amp; Greenery Styling</li>
+                        <li>Backdrop Sign of Choice</li>
+                        <li>1 Custom Feature<span class="feature-detail">Cutout, bow, or number stack</span></li>
+                        <li>Floor Styling (mat or base)</li>
+                        <li>Full Installation &amp; On-Site Styling</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Customize</a>
+
+                    <div class="pricing-section-title">Best Suited For</div>
+                    <ul class="pricing-suited">
+                        <li>Weddings &amp; Bridal Showers</li>
+                        <li>Milestone Celebrations</li>
+                        <li>Clients wanting a fully styled, luxury experience</li>
+                    </ul>
+
+                    <div class="pricing-booking">
+                        <div class="pricing-booking-title">Booking Details</div>
+                        <ul>
+                            <li>50% Non-Refundable Deposit Required</li>
+                            <li>Balance Due on Event Day</li>
+                            <li>Damage Deposit Required</li>
+                        </ul>
+                        <p class="booking-note">*Delivery &amp; setup fees are quoted based on location.</p>
+                    </div>
+
+                    <div class="pricing-cta">
+                        <a href="#contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Customize</a>
+                    </div>
                 </div>
+
             </div>
 
             <!-- Additional Services -->
