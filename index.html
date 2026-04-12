@@ -694,7 +694,7 @@
         .pricing-card {
             background: linear-gradient(165deg, #fdf8f0 0%, #faf5f7 50%, #f5eff8 100%);
             border-radius: 20px;
-            padding: 44px 32px 36px;
+            padding: 0 0 36px;
             text-align: center;
             transition: var(--transition);
             box-shadow: var(--shadow-soft);
@@ -702,6 +702,7 @@
             border: 1.5px solid var(--gold-light);
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
 
         .pricing-card::before {
@@ -711,6 +712,20 @@
             border: 1px solid rgba(201, 168, 76, 0.2);
             border-radius: 14px;
             pointer-events: none;
+            z-index: 1;
+        }
+
+        .pricing-header-img {
+            width: 100%;
+            display: block;
+            border-radius: 18px 18px 0 0;
+        }
+
+        .pricing-card-body {
+            padding: 24px 32px 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .pricing-card.featured {
@@ -723,7 +738,7 @@
         .pricing-card.featured::after {
             content: 'Most Popular';
             position: absolute;
-            top: -14px; left: 50%;
+            top: 12px; left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(135deg, var(--gold), var(--gold-shimmer));
             color: var(--white);
@@ -734,6 +749,7 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             white-space: nowrap;
+            z-index: 2;
         }
 
         .pricing-card:hover {
@@ -744,37 +760,10 @@
 
         .pricing-card.featured:hover { transform: scale(1.03) translateY(-8px); }
 
-        .pricing-name {
-            font-family: var(--font-script);
-            font-size: 2rem;
-            color: var(--purple-deep);
-            margin-bottom: 4px;
-            line-height: 1.2;
-        }
-
-        .pricing-price {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 4px;
-            font-family: var(--font-display);
-        }
-
-        .pricing-price-suffix {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            font-weight: 400;
-        }
-
-        .pricing-desc {
-            font-family: var(--font-display);
-            font-style: italic;
-            font-size: 0.88rem;
-            color: var(--text-medium);
-            margin-bottom: 24px;
-            line-height: 1.6;
-            padding: 0 8px;
-        }
+        .pricing-name { display: none; }
+        .pricing-price { display: none; }
+        .pricing-price-suffix { display: none; }
+        .pricing-desc { display: none; }
 
         .pricing-section-title {
             font-family: var(--font-display);
@@ -902,6 +891,7 @@
             border-top: 1px solid rgba(201, 168, 76, 0.2);
         }
 
+
         .pricing-booking-title {
             font-family: var(--font-display);
             font-size: 0.8rem;
@@ -946,6 +936,7 @@
 
         .pricing-cta {
             margin-top: 20px;
+            padding-bottom: 4px;
         }
 
         /* Floral decorations */
@@ -1628,6 +1619,7 @@
             .btn { width: 100%; justify-content: center; }
             .gallery-grid { grid-template-columns: 1fr; }
             .testimonial-card p { min-height: auto; }
+            .pricing-card-body { padding: 20px 20px 0; }
         }
 
         /* ============================================
@@ -2190,9 +2182,8 @@
 
                 <!-- PETITE PACKAGE -->
                 <div class="pricing-card">
-                    <div class="pricing-name">Petite Package</div>
-                    <div class="pricing-price">$250</div>
-                    <p class="pricing-desc">A simple, elegant statement piece designed for intimate celebrations.</p>
+                    <img src="images/pricing/petite-header.jpeg" alt="Petite Package - $250" class="pricing-header-img" loading="lazy">
+                    <div class="pricing-card-body">
 
                     <div class="pricing-section-title">What's Included</div>
                     <ul class="pricing-features">
@@ -2238,13 +2229,13 @@
                     <div class="pricing-cta">
                         <a href="#contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Get a Quote</a>
                     </div>
+                    </div>
                 </div>
 
                 <!-- SIGNATURE PACKAGE -->
                 <div class="pricing-card featured">
-                    <div class="pricing-name">Signature Package</div>
-                    <div class="pricing-price">Starting at $350</div>
-                    <p class="pricing-desc">An elevated, custom-designed setup creating a refined and memorable focal point for your celebration.</p>
+                    <img src="images/pricing/signature-header.jpeg" alt="Signature Package - Starting at $350" class="pricing-header-img" loading="lazy">
+                    <div class="pricing-card-body">
 
                     <div class="pricing-section-title">What's Included</div>
                     <ul class="pricing-features">
@@ -2274,13 +2265,13 @@
                     <div class="pricing-cta">
                         <a href="#contact" class="btn btn-primary" style="width: 100%; justify-content: center;">Book Now</a>
                     </div>
+                    </div>
                 </div>
 
                 <!-- LUXE PACKAGE -->
                 <div class="pricing-card">
-                    <div class="pricing-name">Luxe Package</div>
-                    <div class="pricing-price">Starting at $500<span class="pricing-price-suffix">+</span></div>
-                    <p class="pricing-desc">Fully customized &amp; designed for your unique vision. A curated, high-end experience where every detail is intentionally styled to create a breathtaking statement.</p>
+                    <img src="images/pricing/luxe-header.jpeg" alt="Luxe Package - Starting at $500+" class="pricing-header-img" loading="lazy">
+                    <div class="pricing-card-body">
 
                     <div class="pricing-section-title">What's Included</div>
                     <ul class="pricing-features">
@@ -2313,6 +2304,7 @@
 
                     <div class="pricing-cta">
                         <a href="#contact" class="btn btn-outline" style="width: 100%; justify-content: center;">Customize</a>
+                    </div>
                     </div>
                 </div>
 
