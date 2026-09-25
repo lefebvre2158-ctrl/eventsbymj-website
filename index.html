@@ -2336,6 +2336,7 @@
 
             <label>Theme or Extra Details <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-light);">(optional)</span></label>
             <textarea id="dDetails" placeholder="e.g. Butterfly garden theme, 'Happy 1st Birthday Mia', indoor living room setup, boho vibe..."></textarea>
+            <p style="font-size:0.78rem;color:var(--text-light);margin-top:0.4rem;line-height:1.5;">Tip: character themes (e.g. Spider-Man, Roblox, Frozen) are welcome &mdash; the preview will show the colours and style, and Maja gets your exact theme in the quote.</p>
 
             <div class="designer-actions">
                 <button type="button" class="btn btn-primary" id="dGenerate" onclick="generatePreview()">&#10024; Generate Preview</button>
@@ -3246,6 +3247,54 @@ function selectedVals(containerId, cls) {
     );
 }
 
+/* Image generators refuse trademarked characters/brands, so translate common
+   themes into generic descriptions before sending. Maja still receives the
+   customer's original wording in the quote email. */
+var THEME_MAP = [
+    [/spider[- ]?man|spiderman/i, 'red and blue superhero theme with web patterns'],
+    [/batman/i, 'black and yellow bat superhero theme'],
+    [/superman/i, 'blue and red superhero theme'],
+    [/marvel|avengers|super ?hero/i, 'bold superhero theme in red, blue and gold'],
+    [/roblox/i, 'blocky pixel video game theme in red, white and black'],
+    [/minecraft/i, 'green and brown pixel block game theme'],
+    [/fortnite/i, 'colourful video game battle theme'],
+    [/mario|luigi|nintendo/i, 'red, blue and yellow retro video game theme with mushrooms and stars'],
+    [/sonic/i, 'blue speedy hedgehog cartoon theme with gold rings'],
+    [/pokemon|pikachu/i, 'yellow and red cartoon creature theme with lightning bolts'],
+    [/paw ?patrol/i, 'puppy rescue theme in blue, red and yellow with paw prints'],
+    [/bluey/i, 'blue and orange cartoon puppy theme'],
+    [/peppa/i, 'pink cartoon pig theme'],
+    [/cocomelon/i, 'bright primary colour watermelon nursery theme'],
+    [/frozen|elsa|anna/i, 'icy blue and silver snowflake winter princess theme'],
+    [/moana/i, 'tropical ocean island princess theme in teal and coral'],
+    [/encanto/i, 'colourful butterfly and flowers Latin theme'],
+    [/princess|disney princess/i, 'pastel pink and gold fairytale princess theme'],
+    [/mickey|minnie/i, 'red, black and white polka dot mouse cartoon theme'],
+    [/disney/i, 'magical castle fairytale theme'],
+    [/toy ?story/i, 'cowboy and space ranger toy theme in primary colours'],
+    [/cars|lightning mcqueen/i, 'red race car theme with checkered flags'],
+    [/hot ?wheels/i, 'orange and blue race track theme'],
+    [/barbie/i, 'hot pink glamorous doll theme'],
+    [/hello ?kitty/i, 'pink and white kawaii kitten bow theme'],
+    [/lol surprise|l\.o\.l/i, 'glittery pastel doll theme'],
+    [/star ?wars|jedi|mandalorian/i, 'galaxy space theme with stars and light sabers in black, silver and blue'],
+    [/harry ?potter|hogwarts/i, 'magical wizard school theme in burgundy, gold and navy'],
+    [/jurassic|dinosaur/i, 'dinosaur jungle theme in green, orange and brown'],
+    [/lego/i, 'colourful building block theme'],
+    [/ninja ?turtles|tmnt/i, 'green ninja turtle cartoon theme'],
+    [/paw|puppy|dog/i, 'cute puppy theme with paw prints'],
+    [/unicorn/i, 'pastel rainbow unicorn theme'],
+    [/mermaid|little mermaid|ariel/i, 'under-the-sea mermaid theme in teal, lavender and pearl'],
+    [/nfl|nhl|nba|mlb|oilers|flames|canucks|maple leafs|raptors|blue jays/i, 'sports team theme in team colours'],
+    [/taylor swift|swiftie|eras/i, 'sparkly pastel pop concert theme with friendship bracelets'],
+    [/coca[- ]?cola|starbucks|mcdonald|nike|adidas|gucci|chanel|louis vuitton/i, 'luxury brand-inspired theme in signature colours']
+];
+function safeTheme(text) {
+    var out = text;
+    THEME_MAP.forEach(function(pair) { out = out.replace(pair[0], pair[1]); });
+    return out;
+}
+
 function buildDesign() {
     var eventType = document.getElementById('dEvent').value;
     var pkg = document.getElementById('dPackage').value;
@@ -3253,7 +3302,8 @@ function buildDesign() {
     var backdrop = selectedVals('dBackdrop', 'chip')[0] || 'single chiara arch backdrop';
     var style = selectedVals('dStyle', 'chip')[0] || 'organic balloon garland';
     var addons = selectedVals('dAddons', 'chip');
-    var details = document.getElementById('dDetails').value.trim();
+    var rawDetails = document.getElementById('dDetails').value.trim();
+    var details = safeTheme(rawDetails);
     if (colours.length === 0) colours = ['blush pink', 'ivory', 'gold'];
 
     var prompt = 'Professional event photography of an elegant ' + eventType.toLowerCase() +
@@ -3269,9 +3319,10 @@ function buildDesign() {
         'Backdrop: ' + backdrop + '\n' +
         'Balloon style: ' + style + '\n' +
         'Add-ons: ' + (addons.length ? addons.join(', ') : 'none') + '\n' +
-        'Details: ' + (details || 'none');
+        'Details: ' + (rawDetails || 'none');
 
-    return { prompt: prompt, summary: summary, eventType: eventType, pkg: pkg, colours: colours };
+    var safePrompt = prompt.replace(details ? 'Theme and details: ' + details + '. ' : '', '');
+    return { prompt: prompt, safePrompt: safePrompt, summary: summary, eventType: eventType, pkg: pkg, colours: colours };
 }
 
 function generatePreview() {
@@ -3290,19 +3341,31 @@ function generatePreview() {
     frame.innerHTML = '<div class="preview-loading"><div class="spinner"></div><p>Designing your preview&hellip;<br><small>This takes about 15&ndash;30 seconds</small></p></div>';
     caption.style.display = 'none';
 
-    fetch(AI_RELAY_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: design.prompt })
+    function callRelay(p) {
+        return fetch(AI_RELAY_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ prompt: p })
+        }).then(function(r) { return r.json().then(function(j) { return { ok: r.ok, body: j }; }); });
+    }
+    var usedFallback = false;
+    callRelay(design.prompt)
+    .then(function(res) {
+        if ((!res.ok || !res.body.image) && design.safePrompt !== design.prompt) {
+            usedFallback = true;
+            frame.innerHTML = '<div class="preview-loading"><div class="spinner"></div><p>Adjusting your theme wording&hellip;<br><small>Almost there</small></p></div>';
+            return callRelay(design.safePrompt);
+        }
+        return res;
     })
-    .then(function(r) { return r.json().then(function(j) { return { ok: r.ok, body: j }; }); })
     .then(function(res) {
         if (!res.ok || !res.body.image) { throw new Error(res.body.error || 'Generation failed'); }
         var dataUrl = 'data:image/png;base64,' + res.body.image;
         lastPreview = { dataUrl: dataUrl, prompt: design.prompt, summary: design.summary };
 
         frame.innerHTML = '<img src="' + dataUrl + '" alt="AI preview of your balloon decor design" style="cursor:default;">';
-        caption.innerHTML = '<strong>' + design.eventType + '</strong> &middot; ' + design.pkg + '<br>' + design.colours.join(' &middot; ');
+        caption.innerHTML = '<strong>' + design.eventType + '</strong> &middot; ' + design.pkg + '<br>' + design.colours.join(' &middot; ') +
+            (usedFallback ? '<br><small style="color:var(--text-light);">Note: the AI can\u2019t draw trademarked characters, so this preview shows the colours and style only. Maja will still see your full theme request.</small>' : '');
         caption.style.display = 'block';
 
         document.getElementById('qSummary').value = design.summary;
